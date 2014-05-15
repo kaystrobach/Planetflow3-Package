@@ -2,8 +2,6 @@
 # Security policy for the Planetflow3 package                            #
 #                                                                        #
 
-# @package Planetflow3
-
 resources:
   methods:
     TYPO3_Planetflow3_OverviewController: 'method(Planetflow3\Controller\OverviewController->.*Action())'
@@ -11,11 +9,10 @@ resources:
     TYPO3_Planetflow3_ChannelController: 'method(Planetflow3\Controller\ChannelController->.*Action())'
     TYPO3_Planetflow3_CategoryController: 'method(Planetflow3\Controller\CategoryController->.*Action())'
     TYPO3_Planetflow3_UserController: 'method(Planetflow3\Controller\UserController->.*Action())'
-
 roles:
-  Administrator: []
-  SystemAdministrator: [Administrator]
-
+  Administrator: {  }
+  SystemAdministrator:
+    - Administrator
 acls:
   Administrator:
     methods:
