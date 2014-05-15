@@ -49,7 +49,7 @@ class ControlGroupViewHelper extends \TYPO3\Fluid\ViewHelpers\Form\AbstractFormF
 	 * @return array<\TYPO3\FLOW3\Error\Error> Array of errors
 	 */
 	protected function getMappingResultsForProperty() {
-		$originalRequestMappingResults = $this->controllerContext->getRequest()->getOriginalRequestMappingResults();
+		$originalRequestMappingResults = $this->controllerContext->getRequest()->getInternalArgument('__submittedArgumentValidationResults');
 		if (!$this->isObjectAccessorMode()) {
 			if (isset($this->arguments['name'])) {
 				$propertyPath = str_replace('[', '.', str_replace(']', '', $this->arguments['name']));
