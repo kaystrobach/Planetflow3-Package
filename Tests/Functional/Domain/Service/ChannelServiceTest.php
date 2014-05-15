@@ -1,5 +1,5 @@
 <?php
-namespace Planetflow\Tests\Functional\Domain\Service;
+namespace TYPO3\Planet\Tests\Functional\Domain\Service;
 
 /*                                                                        *
  * This script belongs to the FLOW3 package "Planetflow3".                *
@@ -22,17 +22,17 @@ class ChannelServiceTest extends \TYPO3\Flow\Tests\FunctionalTestCase {
 	static protected $testablePersistenceEnabled = TRUE;
 
 	/**
-	 * @var \Planetflow\Domain\Repository\ChannelRepository
+	 * @var \TYPO3\Planet\Domain\Repository\ChannelRepository
 	 */
 	protected $categoryRepository;
 
 	/**
-	 * @var \Planetflow\Domain\Repository\ChannelRepository
+	 * @var \TYPO3\Planet\Domain\Repository\ChannelRepository
 	 */
 	protected $channelRepository;
 
 	/**
-	 * @var \Planetflow\Domain\Repository\ItemRepository
+	 * @var \TYPO3\Planet\Domain\Repository\ItemRepository
 	 */
 	protected $itemRepository;
 
@@ -42,7 +42,7 @@ class ChannelServiceTest extends \TYPO3\Flow\Tests\FunctionalTestCase {
 	protected $persistenceManager;
 
 	/**
-	 * @var \Planetflow\Domain\Service\ChannelService
+	 * @var \TYPO3\Planet\Domain\Service\ChannelService
 	 */
 	protected $channelService;
 
@@ -51,11 +51,11 @@ class ChannelServiceTest extends \TYPO3\Flow\Tests\FunctionalTestCase {
 	 */
 	public function setUp() {
 		parent::setUp();
-		$this->categoryRepository = $this->objectManager->get('Planetflow3\Domain\Repository\CategoryRepository');
-		$this->channelRepository = $this->objectManager->get('Planetflow3\Domain\Repository\ChannelRepository');
-		$this->itemRepository = $this->objectManager->get('Planetflow3\Domain\Repository\ItemRepository');
+		$this->categoryRepository = $this->objectManager->get('TYPO3\Planet\Domain\Repository\CategoryRepository');
+		$this->channelRepository = $this->objectManager->get('TYPO3\Planet\Domain\Repository\ChannelRepository');
+		$this->itemRepository = $this->objectManager->get('TYPO3\Planet\Domain\Repository\ItemRepository');
 
-		$this->channelService = $this->objectManager->get('Planetflow3\Domain\Service\ChannelService');
+		$this->channelService = $this->objectManager->get('TYPO3\Planet\Domain\Service\ChannelService');
 
 		$this->persistenceManager = $this->objectManager->get('TYPO3\Flow\Persistence\PersistenceManagerInterface');
 	}
@@ -64,7 +64,7 @@ class ChannelServiceTest extends \TYPO3\Flow\Tests\FunctionalTestCase {
 	 * @test
 	 */
 	public function fetchItemsGetsMatchingItemsFromFeed() {
-		$channel = new \Planetflow\Domain\Model\Channel();
+		$channel = new \TYPO3\Planet\Domain\Model\Channel();
 		$channel->setFeedUrl('file://' . __DIR__ . '/../../Fixtures/Feeds/news.typo3.org-news-teams-flow3-rss.xml');
 		$channel->setName('Test Feed');
 		$channel->setUrl('http://www.example.com/test');

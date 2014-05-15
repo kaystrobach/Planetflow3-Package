@@ -1,5 +1,5 @@
 <?php
-namespace Planetflow\Tests\Functional\Controller;
+namespace TYPO3\Planet\Tests\Functional\Controller;
 
 /*                                                                        *
  * This script belongs to the FLOW3 package "Planetflow3".                *
@@ -22,12 +22,12 @@ class StandardControllerTest extends \TYPO3\Flow\Tests\FunctionalTestCase {
 	static protected $testablePersistenceEnabled = TRUE;
 
 	/**
-	 * @var \Planetflow\Domain\Repository\ChannelRepository
+	 * @var \TYPO3\Planet\Domain\Repository\ChannelRepository
 	 */
 	protected $channelRepository;
 
 	/**
-	 * @var \Planetflow\Domain\Repository\ItemRepository
+	 * @var \TYPO3\Planet\Domain\Repository\ItemRepository
 	 */
 	protected $itemRepository;
 
@@ -41,8 +41,8 @@ class StandardControllerTest extends \TYPO3\Flow\Tests\FunctionalTestCase {
 	 */
 	public function setUp() {
 		parent::setUp();
-		$this->channelRepository = $this->objectManager->get('Planetflow3\Domain\Repository\ChannelRepository');
-		$this->itemRepository = $this->objectManager->get('Planetflow3\Domain\Repository\ItemRepository');
+		$this->channelRepository = $this->objectManager->get('TYPO3\Planet\Domain\Repository\ChannelRepository');
+		$this->itemRepository = $this->objectManager->get('TYPO3\Planet\Domain\Repository\ItemRepository');
 
 		$this->persistenceManager = $this->objectManager->get('TYPO3\Flow\Persistence\PersistenceManagerInterface');
 	}
@@ -80,14 +80,14 @@ class StandardControllerTest extends \TYPO3\Flow\Tests\FunctionalTestCase {
 	 * @return void
 	 */
 	protected function createTestData() {
-		$channel = new \Planetflow\Domain\Model\Channel();
+		$channel = new \TYPO3\Planet\Domain\Model\Channel();
 		$channel->setName('Test channel');
 		$channel->setUrl('http://www.example.com');
 		$channel->setFeedUrl('http://www.example.com/rss.xml');
 
 		$this->channelRepository->add($channel);
 
-		$item = new \Planetflow\Domain\Model\Item();
+		$item = new \TYPO3\Planet\Domain\Model\Item();
 		$item->setChannel($channel);
 		$item->setAuthor('Test author');
 		// $item->setCategories(array('FLOW3'));
