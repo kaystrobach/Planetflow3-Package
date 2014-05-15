@@ -11,7 +11,7 @@ namespace Planetflow3\Controller;
  * The TYPO3 project - inspiring people to share!                         *
  *                                                                        */
 
-use TYPO3\FLOW3\Annotations as FLOW3;
+use TYPO3\Flow\Annotations as Flow;
 
 /**
  * User controller
@@ -20,7 +20,7 @@ use TYPO3\FLOW3\Annotations as FLOW3;
 class UserController extends AbstractBackendController {
 
 	/**
-	 * @FLOW3\Inject
+	 * @Flow\Inject
 	 * @var \Planetflow3\Domain\Repository\UserRepository
 	 */
 	protected $userRepository;
@@ -28,7 +28,7 @@ class UserController extends AbstractBackendController {
 	/**
 	 * Index action
 	 *
-	 * @FLOW3\SkipCsrfProtection
+	 * @Flow\SkipCsrfProtection
 	 */
 	public function indexAction() {
 		$users = $this->userRepository->findAll();
@@ -39,7 +39,7 @@ class UserController extends AbstractBackendController {
 	 * New action
 	 *
 	 * @param \Planetflow3\Domain\Model\User $user
-	 * @FLOW3\IgnoreValidation("$user")
+	 * @Flow\IgnoreValidation("$user")
 	 */
 	public function newAction(\Planetflow3\Domain\Model\User $user = NULL) {
 		$this->view->assign('user', $user);
@@ -50,13 +50,13 @@ class UserController extends AbstractBackendController {
 	 *
 	 * @param \Planetflow3\Domain\Model\User $user
 	 * @param \Planetflow3\Domain\Dto\UserPassword $userPassword
-	 * @FLOW3\Validate("$userPassword", type="Planetflow3\Domain\Validator\CreateUserPasswordValidator")
+	 * @Flow\Validate("$userPassword", type="Planetflow3\Domain\Validator\CreateUserPasswordValidator")
 	 */
 	public function createAction(\Planetflow3\Domain\Model\User $user, \Planetflow3\Domain\Dto\UserPassword $userPassword) {
 		$user->setPassword($userPassword->getPassword());
 		$this->userRepository->add($user);
 
-		$this->addFlashMessage('User created.', 'Success', \TYPO3\FLOW3\Error\Message::SEVERITY_OK);
+		$this->addFlashMessage('User created.', 'Success', \TYPO3\Flow\Error\Message::SEVERITY_OK);
 		$this->redirect('index');
 	}
 
@@ -64,7 +64,7 @@ class UserController extends AbstractBackendController {
 	 * Edit action
 	 *
 	 * @param \Planetflow3\Domain\Model\User $user
-	 * @FLOW3\IgnoreValidation("$user")
+	 * @Flow\IgnoreValidation("$user")
 	 */
 	public function editAction(\Planetflow3\Domain\Model\User $user) {
 		$this->view->assign('user', $user);
@@ -75,7 +75,7 @@ class UserController extends AbstractBackendController {
 	 *
 	 * @param \Planetflow3\Domain\Model\User $user
 	 * @param \Planetflow3\Domain\Dto\UserPassword $userPassword
-	 * @FLOW3\Validate("$userPassword", type="Planetflow3\Domain\Validator\UserPasswordValidator")
+	 * @Flow\Validate("$userPassword", type="Planetflow3\Domain\Validator\UserPasswordValidator")
 	 */
 	public function updateAction(\Planetflow3\Domain\Model\User $user, \Planetflow3\Domain\Dto\UserPassword $userPassword) {
 		if ((string)$userPassword->getPassword() !== '') {
@@ -83,7 +83,7 @@ class UserController extends AbstractBackendController {
 		}
 		$this->userRepository->update($user);
 
-		$this->addFlashMessage('User updated.', 'Success', \TYPO3\FLOW3\Error\Message::SEVERITY_OK);
+		$this->addFlashMessage('User updated.', 'Success', \TYPO3\Flow\Error\Message::SEVERITY_OK);
 		$this->redirect('index');
 	}
 
@@ -91,12 +91,12 @@ class UserController extends AbstractBackendController {
 	 * Delete action
 	 *
 	 * @param \Planetflow3\Domain\Model\User $user
-	 * @FLOW3\IgnoreValidation("$user")
+	 * @Flow\IgnoreValidation("$user")
 	 */
 	public function deleteAction(\Planetflow3\Domain\Model\User $user) {
 		$this->userRepository->remove($user);
 
-		$this->addFlashMessage('User removed.', 'Success', \TYPO3\FLOW3\Error\Message::SEVERITY_NOTICE);
+		$this->addFlashMessage('User removed.', 'Success', \TYPO3\Flow\Error\Message::SEVERITY_NOTICE);
 		$this->redirect('index');
 	}
 

@@ -11,22 +11,22 @@ namespace Planetflow3\Domain\Repository;
  * The TYPO3 project - inspiring people to share!                         *
  *                                                                        */
 
-use TYPO3\FLOW3\Annotations as FLOW3;
+use TYPO3\Flow\Annotations as Flow;
 
 /**
  * A repository for Channels
  *
- * @FLOW3\Scope("singleton")
+ * @Flow\Scope("singleton")
  */
-class ChannelRepository extends \TYPO3\FLOW3\Persistence\Doctrine\Repository {
+class ChannelRepository extends \TYPO3\Flow\Persistence\Doctrine\Repository {
 
 	/**
 	 * @var array
 	 */
-	protected $defaultOrderings = array('name' => \TYPO3\FLOW3\Persistence\QueryInterface::ORDER_ASCENDING);
+	protected $defaultOrderings = array('name' => \TYPO3\Flow\Persistence\QueryInterface::ORDER_ASCENDING);
 
 	/**
-	 * @return \TYPO3\FLOW3\Persistence\QueryResultInterface
+	 * @return \TYPO3\Flow\Persistence\QueryResultInterface
 	 */
 	public function findAll() {
 		$query = $this->createQuery();
@@ -37,7 +37,7 @@ class ChannelRepository extends \TYPO3\FLOW3\Persistence\Doctrine\Repository {
 	 * Get a list of channels ordered by the count of associated items
 	 *
 	 * @param integer $limit
-	 * @return \TYPO3\FLOW3\Persistence\QueryResultInterface
+	 * @return \TYPO3\Flow\Persistence\QueryResultInterface
 	 */
 	public function findTopChannels($limit = 10) {
 		$result = $this->entityManager

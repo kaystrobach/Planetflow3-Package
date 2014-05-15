@@ -14,7 +14,7 @@ namespace Planetflow3\Tests\Functional\Domain\Service;
 /**
  * Functional tests for the ChannelService
  */
-class ChannelServiceTest extends \TYPO3\FLOW3\Tests\FunctionalTestCase {
+class ChannelServiceTest extends \TYPO3\Flow\Tests\FunctionalTestCase {
 
 	/**
 	 * @var boolean
@@ -37,7 +37,7 @@ class ChannelServiceTest extends \TYPO3\FLOW3\Tests\FunctionalTestCase {
 	protected $itemRepository;
 
 	/**
-	 * @var \TYPO3\FLOW3\Persistence\PersistenceManagerInterface
+	 * @var \TYPO3\Flow\Persistence\PersistenceManagerInterface
 	 */
 	protected $persistenceManager;
 
@@ -57,7 +57,7 @@ class ChannelServiceTest extends \TYPO3\FLOW3\Tests\FunctionalTestCase {
 
 		$this->channelService = $this->objectManager->get('Planetflow3\Domain\Service\ChannelService');
 
-		$this->persistenceManager = $this->objectManager->get('TYPO3\FLOW3\Persistence\PersistenceManagerInterface');
+		$this->persistenceManager = $this->objectManager->get('TYPO3\Flow\Persistence\PersistenceManagerInterface');
 	}
 
 	/**

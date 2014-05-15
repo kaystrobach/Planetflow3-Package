@@ -11,12 +11,12 @@ namespace Planetflow3\Domain\Validator;
  * The TYPO3 project - inspiring people to share!                         *
  *                                                                        */
 
-use TYPO3\FLOW3\Annotations as FLOW3;
+use TYPO3\Flow\Annotations as Flow;
 
 /**
  * A validator for password on user creation / edit
  */
-class UserPasswordValidator extends \TYPO3\FLOW3\Validation\Validator\AbstractValidator {
+class UserPasswordValidator extends \TYPO3\Flow\Validation\Validator\AbstractValidator {
 
 	/**
 	 * @param \Planetflow3\Domain\Dto\UserPassword $value
@@ -24,10 +24,10 @@ class UserPasswordValidator extends \TYPO3\FLOW3\Validation\Validator\AbstractVa
 	 */
 	protected function isValid($value) {
 		if (strlen($value->getPassword()) > 0 && strlen($value->getPassword()) < 8) {
-			$this->result->forProperty('password')->addError(new \TYPO3\FLOW3\Validation\Error('Password must be at least 8 characters', 1332265186));
+			$this->result->forProperty('password')->addError(new \TYPO3\Flow\Validation\Error('Password must be at least 8 characters', 1332265186));
 		}
 		if ($value->getPassword() !== $value->getPasswordConfirmation()) {
-			$this->result->forProperty('passwordConfirmation')->addError(new \TYPO3\FLOW3\Validation\Error('Password confirmation does not match', 1332264922));
+			$this->result->forProperty('passwordConfirmation')->addError(new \TYPO3\Flow\Validation\Error('Password confirmation does not match', 1332264922));
 		}
 	}
 

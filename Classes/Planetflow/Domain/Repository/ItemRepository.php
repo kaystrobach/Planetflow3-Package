@@ -11,22 +11,22 @@ namespace Planetflow3\Domain\Repository;
  * The TYPO3 project - inspiring people to share!                         *
  *                                                                        */
 
-use TYPO3\FLOW3\Annotations as FLOW3;
+use TYPO3\Flow\Annotations as Flow;
 
 /**
  * A repository for Items
  *
- * @FLOW3\Scope("singleton")
+ * @Flow\Scope("singleton")
  */
-class ItemRepository extends \TYPO3\FLOW3\Persistence\Doctrine\Repository {
+class ItemRepository extends \TYPO3\Flow\Persistence\Doctrine\Repository {
 
 	/**
 	 * @var array
 	 */
-	protected $defaultOrderings = array('publicationDate' => \TYPO3\FLOW3\Persistence\QueryInterface::ORDER_DESCENDING);
+	protected $defaultOrderings = array('publicationDate' => \TYPO3\Flow\Persistence\QueryInterface::ORDER_DESCENDING);
 
 	/**
-	 * @return \TYPO3\FLOW3\Persistence\QueryResultInterface
+	 * @return \TYPO3\Flow\Persistence\QueryResultInterface
 	 */
 	public function findAll() {
 		$query = $this->createQuery();
@@ -37,7 +37,7 @@ class ItemRepository extends \TYPO3\FLOW3\Persistence\Doctrine\Repository {
 	 * Find items by filter for management
 	 *
 	 * @param \Planetflow3\Domain\Dto\ItemFilter $filter
-	 * @return \TYPO3\FLOW3\Persistence\QueryResultInterface
+	 * @return \TYPO3\Flow\Persistence\QueryResultInterface
 	 */
 	public function findByFilter(\Planetflow3\Domain\Dto\ItemFilter $filter = NULL) {
 		$query = $this->createQuery();

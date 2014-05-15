@@ -14,7 +14,7 @@ namespace Planetflow3\Log;
 /**
  * A feed logger interface
  */
-interface FeedLoggerInterface extends \TYPO3\FLOW3\Log\LoggerInterface {
+interface FeedLoggerInterface extends \TYPO3\Flow\Log\LoggerInterface {
 
 }
 ?>

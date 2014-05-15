@@ -11,7 +11,7 @@ namespace Planetflow3\Domain\Validator;
  * The TYPO3 project - inspiring people to share!                         *
  *                                                                        */
 
-use TYPO3\FLOW3\Annotations as FLOW3;
+use TYPO3\Flow\Annotations as Flow;
 
 /**
  * A validator for password on user creation
@@ -25,7 +25,7 @@ class CreateUserPasswordValidator extends UserPasswordValidator {
 	protected function isValid($value) {
 		parent::isValid($value);
 		if ((string)$value->getPassword() === '') {
-			$this->result->forProperty('password')->addError(new \TYPO3\FLOW3\Validation\Error('This property is required', 1332264528));
+			$this->result->forProperty('password')->addError(new \TYPO3\Flow\Validation\Error('This property is required', 1332264528));
 		}
 	}
 

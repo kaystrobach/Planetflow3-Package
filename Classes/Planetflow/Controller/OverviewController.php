@@ -11,7 +11,7 @@ namespace Planetflow3\Controller;
  * The TYPO3 project - inspiring people to share!                         *
  *                                                                        */
 
-use TYPO3\FLOW3\Annotations as FLOW3;
+use TYPO3\Flow\Annotations as Flow;
 
 /**
  * Overview controller
@@ -19,19 +19,19 @@ use TYPO3\FLOW3\Annotations as FLOW3;
 class OverviewController extends AbstractBackendController {
 
 	/**
-	 * @FLOW3\Inject
+	 * @Flow\Inject
 	 * @var \Planetflow3\Domain\Repository\ItemRepository
 	 */
 	protected $itemRepository;
 
 	/**
-	 * @FLOW3\Inject
+	 * @Flow\Inject
 	 * @var \Planetflow3\Domain\Repository\ChannelRepository
 	 */
 	protected $channelRepository;
 
 	/**
-	 * @FLOW3\SkipCsrfProtection
+	 * @Flow\SkipCsrfProtection
 	 */
 	public function indexAction() {
 		$items = $this->itemRepository->findByFilter(NULL);

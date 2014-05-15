@@ -11,7 +11,7 @@ namespace Planetflow3\Controller;
  * The TYPO3 project - inspiring people to share!                         *
  *                                                                        */
 
-use TYPO3\FLOW3\Annotations as FLOW3;
+use TYPO3\Flow\Annotations as Flow;
 
 /**
  * Item controller
@@ -20,19 +20,19 @@ use TYPO3\FLOW3\Annotations as FLOW3;
 class ItemController extends AbstractBackendController {
 
 	/**
-	 * @FLOW3\Inject
+	 * @Flow\Inject
 	 * @var \Planetflow3\Domain\Repository\ItemRepository
 	 */
 	protected $itemRepository;
 
 	/**
-	 * @FLOW3\Inject
+	 * @Flow\Inject
 	 * @var \Planetflow3\Domain\Repository\ChannelRepository
 	 */
 	protected $channelRepository;
 
 	/**
-	 * @FLOW3\Inject
+	 * @Flow\Inject
 	 * @var \Planetflow3\Domain\Repository\CategoryRepository
 	 */
 	protected $categoryRepository;
@@ -41,7 +41,7 @@ class ItemController extends AbstractBackendController {
 	 * Index action
 	 *
 	 * @param \Planetflow3\Domain\Dto\ItemFilter $filter
-	 * @FLOW3\SkipCsrfProtection
+	 * @Flow\SkipCsrfProtection
 	 */
 	public function indexAction($filter = NULL) {
 		if ($filter === NULL) {
@@ -61,7 +61,7 @@ class ItemController extends AbstractBackendController {
 	 * Edit action
 	 *
 	 * @param \Planetflow3\Domain\Model\Item $item
-	 * @FLOW3\IgnoreValidation("$item")
+	 * @Flow\IgnoreValidation("$item")
 	 */
 	public function editAction(\Planetflow3\Domain\Model\Item $item) {
 		$categories = $this->categoryRepository->findAll();
@@ -78,7 +78,7 @@ class ItemController extends AbstractBackendController {
 	public function updateAction(\Planetflow3\Domain\Model\Item $item) {
 		$this->itemRepository->update($item);
 
-		$this->addFlashMessage('Item updated.', 'Success', \TYPO3\FLOW3\Error\Message::SEVERITY_OK);
+		$this->addFlashMessage('Item updated.', 'Success', \TYPO3\Flow\Error\Message::SEVERITY_OK);
 		$this->redirect('index');
 	}
 
@@ -91,7 +91,7 @@ class ItemController extends AbstractBackendController {
 		$item->setDisabled(FALSE);
 		$this->itemRepository->update($item);
 
-		$this->addFlashMessage('Item enabled.', 'Success', \TYPO3\FLOW3\Error\Message::SEVERITY_OK);
+		$this->addFlashMessage('Item enabled.', 'Success', \TYPO3\Flow\Error\Message::SEVERITY_OK);
 		$this->redirect('index');
 	}
 
@@ -104,7 +104,7 @@ class ItemController extends AbstractBackendController {
 		$item->setDisabled(TRUE);
 		$this->itemRepository->update($item);
 
-		$this->addFlashMessage('Item disabled.', 'Success', \TYPO3\FLOW3\Error\Message::SEVERITY_OK);
+		$this->addFlashMessage('Item disabled.', 'Success', \TYPO3\Flow\Error\Message::SEVERITY_OK);
 		$this->redirect('index');
 	}
 

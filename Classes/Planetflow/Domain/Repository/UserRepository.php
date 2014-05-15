@@ -11,23 +11,23 @@ namespace Planetflow3\Domain\Repository;
  * The TYPO3 project - inspiring people to share!                         *
  *                                                                        */
 
-use TYPO3\FLOW3\Annotations as FLOW3;
+use TYPO3\Flow\Annotations as Flow;
 
 /**
  * A repository for Users
  *
- * @FLOW3\Scope("singleton")
+ * @Flow\Scope("singleton")
  */
-class UserRepository extends \TYPO3\FLOW3\Persistence\Doctrine\Repository {
+class UserRepository extends \TYPO3\Flow\Persistence\Doctrine\Repository {
 
 	/**
 	 * @var array
 	 */
-	protected $defaultOrderings = array('emailAddress' => \TYPO3\FLOW3\Persistence\QueryInterface::ORDER_ASCENDING);
+	protected $defaultOrderings = array('emailAddress' => \TYPO3\Flow\Persistence\QueryInterface::ORDER_ASCENDING);
 
 	/**
-	 * @FLOW3\Inject
-	 * @var \TYPO3\FLOW3\Security\AccountRepository
+	 * @Flow\Inject
+	 * @var \TYPO3\Flow\Security\AccountRepository
 	 */
 	protected $accountRepository;
 

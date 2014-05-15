@@ -12,19 +12,19 @@ namespace Planetflow3\Domain\Model;
  *                                                                        */
 
 use Doctrine\ORM\Mapping as ORM;
-use TYPO3\FLOW3\Annotations as FLOW3;
+use TYPO3\Flow\Annotations as Flow;
 
 /**
  * An Item
  *
- * @FLOW3\Entity
+ * @Flow\Entity
  */
 class Item {
 
 	/**
 	 * The universal identifier (atomId or guid), used as identifier and id
 	 * @var string
-	 * @FLOW3\Identity
+	 * @Flow\Identity
 	 * @ORM\Id
 	 */
 	protected $universalIdentifier;

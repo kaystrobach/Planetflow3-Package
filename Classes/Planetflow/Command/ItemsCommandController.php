@@ -11,7 +11,7 @@ namespace Planetflow3\Command;
  * The TYPO3 project - inspiring people to share!                         *
  *                                                                        */
 
-use TYPO3\FLOW3\Annotations as FLOW3;
+use TYPO3\Flow\Annotations as Flow;
 
 use Planetflow3\Domain\Model\Item as Item;
 
@@ -19,34 +19,34 @@ use Planetflow3\Domain\Model\Item as Item;
  * Command controller to set up the Planetflow3 package
  *
  */
-class ItemsCommandController extends \TYPO3\FLOW3\Cli\CommandController {
+class ItemsCommandController extends \TYPO3\Flow\Cli\CommandController {
 
 	/**
-	 * @FLOW3\Inject
+	 * @Flow\Inject
 	 * @var \Planetflow3\Domain\Repository\ChannelRepository
 	 */
 	protected $channelRepository;
 
 	/**
-	 * @FLOW3\Inject
+	 * @Flow\Inject
 	 * @var \Planetflow3\Domain\Service\ChannelService
 	 */
 	protected $channelService;
 
 	/**
-	 * @FLOW3\Inject
+	 * @Flow\Inject
 	 * @var \Planetflow3\Domain\Repository\ItemRepository
 	 */
 	protected $itemRepository;
 
 	/**
-	 * @FLOW3\Inject
-	 * @var \TYPO3\FLOW3\Security\AccountRepository
+	 * @Flow\Inject
+	 * @var \TYPO3\Flow\Security\AccountRepository
 	 */
 	protected $accountRepository;
 
 	/**
-	 * @FLOW3\Inject
+	 * @Flow\Inject
 	 * @var \Planetflow3\Log\FeedLoggerInterface
 	 */
 	public $feedLogger;

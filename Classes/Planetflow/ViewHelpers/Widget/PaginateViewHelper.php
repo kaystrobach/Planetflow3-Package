@@ -11,7 +11,7 @@ namespace Planetflow3\ViewHelpers\Widget;
  * The TYPO3 project - inspiring people to share!                         *
  *                                                                        */
 
-use TYPO3\FLOW3\Annotations as FLOW3;
+use TYPO3\Flow\Annotations as Flow;
 
 /**
  * Custom paginate widget
@@ -19,7 +19,7 @@ use TYPO3\FLOW3\Annotations as FLOW3;
 class PaginateViewHelper extends \TYPO3\Fluid\ViewHelpers\Widget\PaginateViewHelper {
 
 	/**
-	 * @FLOW3\Inject
+	 * @Flow\Inject
 	 * @var \Planetflow3\ViewHelpers\Widget\Controller\PaginateController
 	 */
 	protected $controller;

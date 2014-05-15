@@ -12,33 +12,33 @@ namespace Planetflow3\Domain\Model;
  *                                                                        */
 
 use Doctrine\ORM\Mapping as ORM;
-use TYPO3\FLOW3\Annotations as FLOW3;
+use TYPO3\Flow\Annotations as Flow;
 
 /**
  * A user
  *
- * @FLOW3\Entity
+ * @Flow\Entity
  */
 class User extends \TYPO3\Party\Domain\Model\AbstractParty {
 
 	/**
 	 * The email address of the user
 	 * @var string
-	 * @FLOW3\Validate(type="NotEmpty")
-	 * @FLOW3\Validate(type="EmailAddress")
+	 * @Flow\Validate(type="NotEmpty")
+	 * @Flow\Validate(type="EmailAddress")
 	 */
 	protected $emailAddress;
 
 	/**
 	 * @var string
-	 * @FLOW3\Validate(type="NotEmpty")
-	 * @FLOW3\Validate(type="RegularExpression", options={"regularExpression"="/^(Administrator|SystemAdministrator)$/"})
+	 * @Flow\Validate(type="NotEmpty")
+	 * @Flow\Validate(type="RegularExpression", options={"regularExpression"="/^(Administrator|SystemAdministrator)$/"})
 	 */
 	protected $role;
 
 	/**
-	 * @FLOW3\Inject
-	 * @var \TYPO3\FLOW3\Security\Cryptography\HashService
+	 * @Flow\Inject
+	 * @var \TYPO3\Flow\Security\Cryptography\HashService
 	 */
 	protected $hashService;
 
@@ -47,7 +47,7 @@ class User extends \TYPO3\Party\Domain\Model\AbstractParty {
 	 */
 	public function __construct() {
 		parent::__construct();
-		$account = new \TYPO3\FLOW3\Security\Account();
+		$account = new \TYPO3\Flow\Security\Account();
 		$account->setAuthenticationProviderName('AdminInterfaceProvider');
 		$this->addAccount($account);
 	}
@@ -93,7 +93,7 @@ class User extends \TYPO3\Party\Domain\Model\AbstractParty {
 	}
 
 	/**
-	 * @return \TYPO3\FLOW3\Security\Account
+	 * @return \TYPO3\Flow\Security\Account
 	 */
 	public function getPrimaryAccount() {
 		if (count($this->accounts) > 0) {

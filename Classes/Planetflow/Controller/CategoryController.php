@@ -11,7 +11,7 @@ namespace Planetflow3\Controller;
  * The TYPO3 project - inspiring people to share!                         *
  *                                                                        */
 
-use TYPO3\FLOW3\Annotations as FLOW3;
+use TYPO3\Flow\Annotations as Flow;
 
 /**
  * Category controller
@@ -20,7 +20,7 @@ use TYPO3\FLOW3\Annotations as FLOW3;
 class CategoryController extends AbstractBackendController {
 
 	/**
-	 * @FLOW3\Inject
+	 * @Flow\Inject
 	 * @var \Planetflow3\Domain\Repository\CategoryRepository
 	 */
 	protected $categoryRepository;
@@ -28,7 +28,7 @@ class CategoryController extends AbstractBackendController {
 	/**
 	 * Index action
 	 *
-	 * @FLOW3\SkipCsrfProtection
+	 * @Flow\SkipCsrfProtection
 	 */
 	public function indexAction() {
 		$categories = $this->categoryRepository->findAll();
@@ -39,7 +39,7 @@ class CategoryController extends AbstractBackendController {
 	 * New action
 	 *
 	 * @param \Planetflow3\Domain\Model\Category $category
-	 * @FLOW3\IgnoreValidation("$category")
+	 * @Flow\IgnoreValidation("$category")
 	 */
 	public function newAction(\Planetflow3\Domain\Model\Category $category = NULL) {
 		$this->view->assign('category', $category);
@@ -53,7 +53,7 @@ class CategoryController extends AbstractBackendController {
 	public function createAction(\Planetflow3\Domain\Model\Category $category) {
 		$this->categoryRepository->add($category);
 
-		$this->addFlashMessage('Category created.', 'Success', \TYPO3\FLOW3\Error\Message::SEVERITY_OK);
+		$this->addFlashMessage('Category created.', 'Success', \TYPO3\Flow\Error\Message::SEVERITY_OK);
 		$this->redirect('index');
 	}
 
@@ -61,7 +61,7 @@ class CategoryController extends AbstractBackendController {
 	 * Edit action
 	 *
 	 * @param \Planetflow3\Domain\Model\Category $category
-	 * @FLOW3\IgnoreValidation("$category")
+	 * @Flow\IgnoreValidation("$category")
 	 */
 	public function editAction(\Planetflow3\Domain\Model\Category $category) {
 		$this->view->assign('category', $category);
@@ -75,7 +75,7 @@ class CategoryController extends AbstractBackendController {
 	public function updateAction(\Planetflow3\Domain\Model\Category $category) {
 		$this->categoryRepository->update($category);
 
-		$this->addFlashMessage('Category updated.', 'Success', \TYPO3\FLOW3\Error\Message::SEVERITY_OK);
+		$this->addFlashMessage('Category updated.', 'Success', \TYPO3\Flow\Error\Message::SEVERITY_OK);
 		$this->redirect('index');
 	}
 
@@ -83,12 +83,12 @@ class CategoryController extends AbstractBackendController {
 	 * Delete action
 	 *
 	 * @param \Planetflow3\Domain\Model\Category $category
-	 * @FLOW3\IgnoreValidation("$category")
+	 * @Flow\IgnoreValidation("$category")
 	 */
 	public function deleteAction(\Planetflow3\Domain\Model\Category $category) {
 		$this->categoryRepository->remove($category);
 
-		$this->addFlashMessage('Category removed.', 'Success', \TYPO3\FLOW3\Error\Message::SEVERITY_NOTICE);
+		$this->addFlashMessage('Category removed.', 'Success', \TYPO3\Flow\Error\Message::SEVERITY_NOTICE);
 		$this->redirect('index');
 	}
 

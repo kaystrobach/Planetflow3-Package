@@ -11,25 +11,25 @@ namespace Planetflow3\Controller;
  * The TYPO3 project - inspiring people to share!                         *
  *                                                                        */
 
-use TYPO3\FLOW3\Annotations as FLOW3;
+use TYPO3\Flow\Annotations as Flow;
 
 /**
  * Abstract backend controller
  */
-class AbstractBackendController extends \TYPO3\FLOW3\Mvc\Controller\ActionController {
+class AbstractBackendController extends \TYPO3\Flow\Mvc\Controller\ActionController {
 
 	/**
-	 * @FLOW3\Inject
-	 * @var \TYPO3\FLOW3\Security\Context
+	 * @Flow\Inject
+	 * @var \TYPO3\Flow\Security\Context
 	 */
 	protected $securityContext;
 
 	/**
 	 *
-	 * @param \TYPO3\FLOW3\Mvc\View\ViewInterface $view
+	 * @param \TYPO3\Flow\Mvc\View\ViewInterface $view
 	 * @return void
 	 */
-	protected function initializeView(\TYPO3\FLOW3\Mvc\View\ViewInterface $view) {
+	protected function initializeView(\TYPO3\Flow\Mvc\View\ViewInterface $view) {
 		parent::initializeView($view);
 		$account = $this->securityContext->getAccount();
 		$view->assign('account', $account);

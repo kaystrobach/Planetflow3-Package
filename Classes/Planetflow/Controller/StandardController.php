@@ -11,22 +11,22 @@ namespace Planetflow3\Controller;
  * The TYPO3 project - inspiring people to share!                         *
  *                                                                        */
 
-use TYPO3\FLOW3\Annotations as FLOW3;
+use TYPO3\Flow\Annotations as Flow;
 
 /**
  * Standard controller for the Planetflow3 package
  *
  */
-class StandardController extends \TYPO3\FLOW3\Mvc\Controller\ActionController {
+class StandardController extends \TYPO3\Flow\Mvc\Controller\ActionController {
 
 	/**
-	 * @FLOW3\Inject
+	 * @Flow\Inject
 	 * @var \Planetflow3\Domain\Repository\ItemRepository
 	 */
 	protected $itemRepository;
 
 	/**
-	 * @FLOW3\Inject
+	 * @Flow\Inject
 	 * @var \Planetflow3\Domain\Repository\ChannelRepository
 	 */
 	protected $channelRepository;
@@ -40,10 +40,10 @@ class StandardController extends \TYPO3\FLOW3\Mvc\Controller\ActionController {
 	/**
 	 * Apply settings to use a different template for the planet
 	 *
-	 * @param \TYPO3\FLOW3\Mvc\View\ViewInterface $view
+	 * @param \TYPO3\Flow\Mvc\View\ViewInterface $view
 	 * @return void
 	 */
-	protected function initializeView(\TYPO3\FLOW3\Mvc\View\ViewInterface $view) {
+	protected function initializeView(\TYPO3\Flow\Mvc\View\ViewInterface $view) {
 		if ($view instanceof \TYPO3\Fluid\View\TemplateView) {
 			if (isset($this->settings['frontend']['view']['templateRootPath'])) {
 				$view->setTemplateRootPath($this->settings['frontend']['view']['templateRootPath']);

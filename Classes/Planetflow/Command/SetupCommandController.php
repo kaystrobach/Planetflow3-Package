@@ -11,34 +11,34 @@ namespace Planetflow3\Command;
  * The TYPO3 project - inspiring people to share!                         *
  *                                                                        */
 
-use TYPO3\FLOW3\Annotations as FLOW3;
+use TYPO3\Flow\Annotations as Flow;
 
 /**
  * Command controller to set up the Planetflow3 package
  *
  */
-class SetupCommandController extends \TYPO3\FLOW3\Cli\CommandController {
+class SetupCommandController extends \TYPO3\Flow\Cli\CommandController {
 
 	/**
-	 * @FLOW3\Inject
+	 * @Flow\Inject
 	 * @var \Planetflow3\Domain\Repository\ChannelRepository
 	 */
 	protected $channelRepository;
 
 	/**
-	 * @FLOW3\Inject
+	 * @Flow\Inject
 	 * @var \Planetflow3\Domain\Repository\ItemRepository
 	 */
 	protected $itemRepository;
 
 	/**
-	 * @FLOW3\Inject
+	 * @Flow\Inject
 	 * @var \Planetflow3\Domain\Repository\CategoryRepository
 	 */
 	protected $categoryRepository;
 
 	/**
-	 * @FLOW3\Inject
+	 * @Flow\Inject
 	 * @var \Planetflow3\Domain\Repository\UserRepository
 	 */
 	protected $userRepository;
@@ -125,7 +125,7 @@ class SetupCommandController extends \TYPO3\FLOW3\Cli\CommandController {
 	 * @return void
 	 */
 	public function createUserCommand($emailAddress) {
-		$uuid = \TYPO3\FLOW3\Utility\Algorithms::generateUUID();
+		$uuid = \TYPO3\Flow\Utility\Algorithms::generateUUID();
 		$password = substr($uuid, 0, 10);
 		$user = new \Planetflow3\Domain\Model\User();
 		$user->setEmailAddress($emailAddress);

@@ -11,17 +11,17 @@ namespace Planetflow3\Controller;
  * The TYPO3 project - inspiring people to share!                         *
  *                                                                        */
 
-use TYPO3\FLOW3\Annotations as FLOW3;
+use TYPO3\Flow\Annotations as Flow;
 
 /**
  * Login controller
  *
  */
-class LoginController extends \TYPO3\FLOW3\Mvc\Controller\ActionController {
+class LoginController extends \TYPO3\Flow\Mvc\Controller\ActionController {
 
 	/**
-	 * @FLOW3\Inject
-	 * @var \TYPO3\FLOW3\Security\Authentication\AuthenticationManagerInterface
+	 * @Flow\Inject
+	 * @var \TYPO3\Flow\Security\Authentication\AuthenticationManagerInterface
 	 */
 	protected $authenticationManager;
 
@@ -41,10 +41,10 @@ class LoginController extends \TYPO3\FLOW3\Mvc\Controller\ActionController {
 	public function authenticateAction() {
 		try {
             $this->authenticationManager->authenticate();
-            $this->addFlashMessage('You have successfully logged in.', 'Welcome', \TYPO3\FLOW3\Error\Message::SEVERITY_OK);
+            $this->addFlashMessage('You have successfully logged in.', 'Welcome', \TYPO3\Flow\Error\Message::SEVERITY_OK);
             $this->redirect('index', 'Overview');
-        } catch (\TYPO3\FLOW3\Security\Exception\AuthenticationRequiredException $exception) {
-			$this->addFlashMessage('Wrong username or password.', 'Login failed', \TYPO3\FLOW3\Error\Message::SEVERITY_ERROR);
+        } catch (\TYPO3\Flow\Security\Exception\AuthenticationRequiredException $exception) {
+			$this->addFlashMessage('Wrong username or password.', 'Login failed', \TYPO3\Flow\Error\Message::SEVERITY_ERROR);
             throw $exception;
         }
 	}
@@ -55,7 +55,7 @@ class LoginController extends \TYPO3\FLOW3\Mvc\Controller\ActionController {
 	public function logoutAction() {
 		$this->authenticationManager->logout();
 
-		$this->addFlashMessage('You are logged out now.', 'See you later', \TYPO3\FLOW3\Error\Message::SEVERITY_OK);
+		$this->addFlashMessage('You are logged out now.', 'See you later', \TYPO3\Flow\Error\Message::SEVERITY_OK);
 		$this->redirect('index');
 	}
 

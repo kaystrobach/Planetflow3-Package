@@ -14,7 +14,7 @@ namespace Planetflow3\Tests\Functional\Controller;
 /**
  * Functional tests for the StandardController
  */
-class StandardControllerTest extends \TYPO3\FLOW3\Tests\FunctionalTestCase {
+class StandardControllerTest extends \TYPO3\Flow\Tests\FunctionalTestCase {
 
 	/**
 	 * @var boolean
@@ -32,7 +32,7 @@ class StandardControllerTest extends \TYPO3\FLOW3\Tests\FunctionalTestCase {
 	protected $itemRepository;
 
 	/**
-	 * @var \TYPO3\FLOW3\Persistence\PersistenceManagerInterface
+	 * @var \TYPO3\Flow\Persistence\PersistenceManagerInterface
 	 */
 	protected $persistenceManager;
 
@@ -44,7 +44,7 @@ class StandardControllerTest extends \TYPO3\FLOW3\Tests\FunctionalTestCase {
 		$this->channelRepository = $this->objectManager->get('Planetflow3\Domain\Repository\ChannelRepository');
 		$this->itemRepository = $this->objectManager->get('Planetflow3\Domain\Repository\ItemRepository');
 
-		$this->persistenceManager = $this->objectManager->get('TYPO3\FLOW3\Persistence\PersistenceManagerInterface');
+		$this->persistenceManager = $this->objectManager->get('TYPO3\Flow\Persistence\PersistenceManagerInterface');
 	}
 
 	/**

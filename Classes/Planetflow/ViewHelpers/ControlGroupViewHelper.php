@@ -46,7 +46,7 @@ class ControlGroupViewHelper extends \TYPO3\Fluid\ViewHelpers\Form\AbstractFormF
 	/**
 	 * Get errors for the property and form name of this view helper
 	 *
-	 * @return array<\TYPO3\FLOW3\Error\Error> Array of errors
+	 * @return array<\TYPO3\Flow\Error\Error> Array of errors
 	 */
 	protected function getMappingResultsForProperty() {
 		$originalRequestMappingResults = $this->controllerContext->getRequest()->getInternalArgument('__submittedArgumentValidationResults');
@@ -55,7 +55,7 @@ class ControlGroupViewHelper extends \TYPO3\Fluid\ViewHelpers\Form\AbstractFormF
 				$propertyPath = str_replace('[', '.', str_replace(']', '', $this->arguments['name']));
 				return $originalRequestMappingResults->forProperty($propertyPath);
 			} else {
-				return new \TYPO3\FLOW3\Error\Result();
+				return new \TYPO3\Flow\Error\Result();
 			}
 		}
 		$formObjectName = $this->viewHelperVariableContainer->get('TYPO3\Fluid\ViewHelpers\FormViewHelper', 'formObjectName');
