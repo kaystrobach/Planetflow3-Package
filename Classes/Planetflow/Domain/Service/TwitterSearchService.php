@@ -1,5 +1,5 @@
 <?php
-namespace Planetflow3\Domain\Service;
+namespace TYPO3\Planet\Domain\Service;
 
 /*                                                                        *
  * This script belongs to the FLOW3 package "Planetflow3".                *

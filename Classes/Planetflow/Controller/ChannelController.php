@@ -1,5 +1,5 @@
 <?php
-namespace Planetflow3\Controller;
+namespace TYPO3\Planet\Controller;
 
 /*                                                                        *
  * This script belongs to the FLOW3 package "Planetflow3".                *
@@ -21,7 +21,7 @@ class ChannelController extends AbstractBackendController {
 
 	/**
 	 * @Flow\Inject
-	 * @var \Planetflow3\Domain\Repository\ChannelRepository
+	 * @var \TYPO3\Planet\Domain\Repository\ChannelRepository
 	 */
 	protected $channelRepository;
 
@@ -38,19 +38,19 @@ class ChannelController extends AbstractBackendController {
 	/**
 	 * New action
 	 *
-	 * @param \Planetflow3\Domain\Model\Channel $channel
+	 * @param \TYPO3\Planet\Domain\Model\Channel $channel
 	 * @Flow\IgnoreValidation("$channel")
 	 */
-	public function newAction(\Planetflow3\Domain\Model\Channel $channel = NULL) {
+	public function newAction(\TYPO3\Planet\Domain\Model\Channel $channel = NULL) {
 		$this->view->assign('channel', $channel);
 	}
 
 	/**
 	 * Create action
 	 *
-	 * @param \Planetflow3\Domain\Model\Channel $channel
+	 * @param \TYPO3\Planet\Domain\Model\Channel $channel
 	 */
-	public function createAction(\Planetflow3\Domain\Model\Channel $channel) {
+	public function createAction(\TYPO3\Planet\Domain\Model\Channel $channel) {
 		$this->channelRepository->add($channel);
 
 		$this->addFlashMessage('Channel created.', 'Success', \TYPO3\Flow\Error\Message::SEVERITY_OK);
@@ -60,19 +60,19 @@ class ChannelController extends AbstractBackendController {
 	/**
 	 * Edit action
 	 *
-	 * @param \Planetflow3\Domain\Model\Channel $channel
+	 * @param \TYPO3\Planet\Domain\Model\Channel $channel
 	 * @Flow\IgnoreValidation("$channel")
 	 */
-	public function editAction(\Planetflow3\Domain\Model\Channel $channel) {
+	public function editAction(\TYPO3\Planet\Domain\Model\Channel $channel) {
 		$this->view->assign('channel', $channel);
 	}
 
 	/**
 	 * Update action
 	 *
-	 * @param \Planetflow3\Domain\Model\Channel $channel
+	 * @param \TYPO3\Planet\Domain\Model\Channel $channel
 	 */
-	public function updateAction(\Planetflow3\Domain\Model\Channel $channel) {
+	public function updateAction(\TYPO3\Planet\Domain\Model\Channel $channel) {
 		$this->channelRepository->update($channel);
 
 		$this->addFlashMessage('Channel updated.', 'Success', \TYPO3\Flow\Error\Message::SEVERITY_OK);
@@ -82,10 +82,10 @@ class ChannelController extends AbstractBackendController {
 	/**
 	 * Delete action
 	 *
-	 * @param \Planetflow3\Domain\Model\Channel $channel
+	 * @param \TYPO3\Planet\Domain\Model\Channel $channel
 	 * @Flow\IgnoreValidation("$channel")
 	 */
-	public function deleteAction(\Planetflow3\Domain\Model\Channel $channel) {
+	public function deleteAction(\TYPO3\Planet\Domain\Model\Channel $channel) {
 		$this->channelRepository->remove($channel);
 
 		$this->addFlashMessage('Channel removed.', 'Success', \TYPO3\Flow\Error\Message::SEVERITY_NOTICE);

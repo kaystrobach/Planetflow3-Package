@@ -1,5 +1,5 @@
 <?php
-namespace Planetflow3\ViewHelpers\Format;
+namespace TYPO3\Planet\ViewHelpers\Format;
 
 /*                                                                        *
  * This script belongs to the FLOW3 package "Planetflow3".                *

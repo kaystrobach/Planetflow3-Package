@@ -1,5 +1,5 @@
 <?php
-namespace Planetflow3\Domain\Repository;
+namespace TYPO3\Planet\Domain\Repository;
 
 /*                                                                        *
  * This script belongs to the FLOW3 package "Planetflow3".                *
@@ -32,7 +32,7 @@ class UserRepository extends \TYPO3\Flow\Persistence\Doctrine\Repository {
 	protected $accountRepository;
 
 	/**
-	 * @param \Planetflow3\Domain\Model\User $object
+	 * @param \TYPO3\Planet\Domain\Model\User $object
 	 */
 	public function add($object) {
 		$this->accountRepository->add($object->getPrimaryAccount());
@@ -41,7 +41,7 @@ class UserRepository extends \TYPO3\Flow\Persistence\Doctrine\Repository {
 
 	/**
 	 *
-	 * @param \Planetflow3\Domain\Model\User $object
+	 * @param \TYPO3\Planet\Domain\Model\User $object
 	 */
 	public function update($object) {
 		$this->accountRepository->update($object->getPrimaryAccount());
@@ -49,7 +49,7 @@ class UserRepository extends \TYPO3\Flow\Persistence\Doctrine\Repository {
 	}
 
 	/**
-	 * @param \Planetflow3\Domain\Model\User $object
+	 * @param \TYPO3\Planet\Domain\Model\User $object
 	 */
 	public function remove($object) {
 		$this->accountRepository->remove($object->getPrimaryAccount());

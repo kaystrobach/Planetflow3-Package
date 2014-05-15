@@ -1,5 +1,5 @@
 <?php
-namespace Planetflow3\Domain\Model;
+namespace TYPO3\Planet\Domain\Model;
 
 /*                                                                        *
  * This script belongs to the FLOW3 package "Planetflow3".                *
@@ -63,7 +63,7 @@ class Item {
 
 	/**
 	 * The categories
-	 * @var \Doctrine\Common\Collections\ArrayCollection<\Planetflow3\Domain\Model\Category>
+	 * @var \Doctrine\Common\Collections\ArrayCollection<\TYPO3\Planet\Domain\Model\Category>
 	 * @ORM\ManyToMany
 	 */
 	protected $categories;
@@ -82,7 +82,7 @@ class Item {
 
 	/**
 	 * The channel
-	 * @var \Planetflow3\Domain\Model\Channel
+	 * @var \TYPO3\Planet\Domain\Model\Channel
 	 * @ORM\ManyToOne(inversedBy="items")
 	 */
 	protected $channel;
@@ -103,10 +103,10 @@ class Item {
 	/**
 	 * Check if this item matches the channel settings
 	 *
-	 * @param \Planetflow3\Domain\Model\Channel $channel
+	 * @param \Planetflow\Domain\Model\Channel $channel
 	 * @return boolean
 	 */
-	public function matchesChannel(\Planetflow3\Domain\Model\Channel $channel) {
+	public function matchesChannel(\TYPO3\Planet\Domain\Model\Channel $channel) {
 		return $this->matchesFilter($channel->getFilter())
 			&& $this->matchesCategories($channel->getFetchedCategories());
 	}
@@ -295,7 +295,7 @@ class Item {
 	/**
 	 * Get the Item's categories
 	 *
-	 * @return \Doctrine\Common\Collections\ArrayCollection<\Planetflow3\Domain\Model\Category> The Item's categories
+	 * @return \Doctrine\Common\Collections\ArrayCollection<\TYPO3\Planet\Domain\Model\Category> The Item's categories
 	 */
 	public function getCategories() {
 		return $this->categories;
@@ -304,7 +304,7 @@ class Item {
 	/**
 	 * Sets this Item's categories
 	 *
-	 * @param \Doctrine\Common\Collections\ArrayCollection<\Planetflow3\Domain\Model\Category> $categories The Item's categories
+	 * @param \Doctrine\Common\Collections\ArrayCollection<\TYPO3\Planet\Domain\Model\Category> $categories The Item's categories
 	 * @return void
 	 */
 	public function setCategories(\Doctrine\Common\Collections\ArrayCollection $categories) {
@@ -314,10 +314,10 @@ class Item {
 	/**
 	 * Add a category to this item
 	 *
-	 * @param \Planetflow3\Domain\Model\Category $category
+	 * @param \TYPO3\Planet\Domain\Model\Category $category
 	 * @return void
 	 */
-	public function addCategory(\Planetflow3\Domain\Model\Category $category) {
+	public function addCategory(\TYPO3\Planet\Domain\Model\Category $category) {
 		$this->categories->add($category);
 	}
 
@@ -378,7 +378,7 @@ class Item {
 	/**
 	 * Get the Item's channel
 	 *
-	 * @return \Planetflow3\Domain\Model\Channel The Item's channel
+	 * @return \TYPO3\Planet\Domain\Model\Channel The Item's channel
 	 */
 	public function getChannel() {
 		return $this->channel;
@@ -387,10 +387,10 @@ class Item {
 	/**
 	 * Sets this Item's channel
 	 *
-	 * @param \Planetflow3\Domain\Model\Channel $channel The Item's channel
+	 * @param \TYPO3\Planet\Domain\Model\Channel $channel The Item's channel
 	 * @return void
 	 */
-	public function setChannel(\Planetflow3\Domain\Model\Channel $channel) {
+	public function setChannel(\TYPO3\Planet\Domain\Model\Channel $channel) {
 		$this->channel = $channel;
 	}
 

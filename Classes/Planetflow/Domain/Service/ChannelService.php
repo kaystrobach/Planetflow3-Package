@@ -1,5 +1,5 @@
 <?php
-namespace Planetflow3\Domain\Service;
+namespace TYPO3\Planet\Domain\Service;
 
 /*                                                                        *
  * This script belongs to the FLOW3 package "Planetflow3".                *
@@ -13,8 +13,8 @@ namespace Planetflow3\Domain\Service;
 
 use TYPO3\Flow\Annotations as Flow;
 
-use Planetflow3\Domain\Model\Channel as Channel;
-use Planetflow3\Domain\Model\Item as Item;
+use TYPO3\Planet\Domain\Model\Channel as Channel;
+use TYPO3\Planet\Domain\Model\Item as Item;
 
 /**
  * A service to sync feeds from channels
@@ -25,19 +25,19 @@ class ChannelService {
 
 	/**
 	 * @Flow\Inject
-	 * @var \Planetflow3\Domain\Repository\CategoryRepository
+	 * @var \TYPO3\Planet\Domain\Repository\CategoryRepository
 	 */
 	protected $categoryRepository;
 
 	/**
 	 * @Flow\Inject
-	 * @var \Planetflow3\Domain\Repository\ItemRepository
+	 * @var \TYPO3\Planet\Domain\Repository\ItemRepository
 	 */
 	protected $itemRepository;
 
 	/**
 	 * @Flow\Inject
-	 * @var \Planetflow3\Domain\Repository\ChannelRepository
+	 * @var \TYPO3\Planet\Domain\Repository\ChannelRepository
 	 */
 	protected $channelRepository;
 
@@ -58,7 +58,7 @@ class ChannelService {
 	 *
 	 * Adds new items and updates channels with a new last fetch date.
 	 *
-	 * @param \Planetflow3\Domain\Model\Channel $channel
+	 * @param \TYPO3\Planet\Domain\Model\Channel $channel
 	 * @param \Closure $logCallback
 	 * @return void
 	 */
@@ -112,7 +112,7 @@ class ChannelService {
 	/**
 	 * Assign categories to an item from a feed item
 	 *
-	 * @param $item \Planetflow3\Domain\Model\Item
+	 * @param $item \TYPO3\Planet\Domain\Model\Item
 	 * @param $feedItem \SimplePie_Item
 	 * @param $logCallback \Closure
 	 * @return void
@@ -139,7 +139,7 @@ class ChannelService {
 	/**
 	 * Populate an item from a feed item
 	 *
-	 * @param $item \Planetflow3\Domain\Model\Item
+	 * @param $item \TYPO3\Planet\Domain\Model\Item
 	 * @param $feedItem \SimplePie_Item
 	 * @return void
 	 */
@@ -173,7 +173,7 @@ class ChannelService {
 	 * If a file URL is set as feedUrl on the channel, the raw data will be set
 	 * on SimplePie to enable functional testing.
 	 *
-	 * @param \Planetflow3\Domain\Model\Channel $channel
+	 * @param \TYPO3\Planet\Domain\Model\Channel $channel
 	 * @return \SimplePie
 	 */
 	protected function createSimplePie(Channel $channel) {

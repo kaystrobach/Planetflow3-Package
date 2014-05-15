@@ -1,5 +1,5 @@
 <?php
-namespace Planetflow3\Tests\Functional\Controller;
+namespace Planetflow\Tests\Functional\Controller;
 
 /*                                                                        *
  * This script belongs to the FLOW3 package "Planetflow3".                *
@@ -22,12 +22,12 @@ class StandardControllerTest extends \TYPO3\Flow\Tests\FunctionalTestCase {
 	static protected $testablePersistenceEnabled = TRUE;
 
 	/**
-	 * @var \Planetflow3\Domain\Repository\ChannelRepository
+	 * @var \Planetflow\Domain\Repository\ChannelRepository
 	 */
 	protected $channelRepository;
 
 	/**
-	 * @var \Planetflow3\Domain\Repository\ItemRepository
+	 * @var \Planetflow\Domain\Repository\ItemRepository
 	 */
 	protected $itemRepository;
 
@@ -80,14 +80,14 @@ class StandardControllerTest extends \TYPO3\Flow\Tests\FunctionalTestCase {
 	 * @return void
 	 */
 	protected function createTestData() {
-		$channel = new \Planetflow3\Domain\Model\Channel();
+		$channel = new \Planetflow\Domain\Model\Channel();
 		$channel->setName('Test channel');
 		$channel->setUrl('http://www.example.com');
 		$channel->setFeedUrl('http://www.example.com/rss.xml');
 
 		$this->channelRepository->add($channel);
 
-		$item = new \Planetflow3\Domain\Model\Item();
+		$item = new \Planetflow\Domain\Model\Item();
 		$item->setChannel($channel);
 		$item->setAuthor('Test author');
 		// $item->setCategories(array('FLOW3'));

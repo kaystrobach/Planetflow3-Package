@@ -1,5 +1,5 @@
 <?php
-namespace Planetflow3\ViewHelpers\Widget\Controller;
+namespace TYPO3\Planet\ViewHelpers\Widget\Controller;
 
 /*                                                                        *
  * This script belongs to the FLOW3 package "Planetflow3".                *

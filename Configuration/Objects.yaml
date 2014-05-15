@@ -1,4 +1,4 @@
-Planetflow3\Log\FeedLoggerInterface:
+TYPO3\Planet\Log\FeedLoggerInterface:
   scope: singleton
   factoryObjectName: TYPO3\Flow\Log\LoggerFactory
   arguments:

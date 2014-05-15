@@ -1,5 +1,5 @@
 <?php
-namespace Planetflow3\Command;
+namespace TYPO3\Planet\Command;
 
 /*                                                                        *
  * This script belongs to the FLOW3 package "Planetflow3".                *
@@ -13,7 +13,7 @@ namespace Planetflow3\Command;
 
 use TYPO3\Flow\Annotations as Flow;
 
-use Planetflow3\Domain\Model\Item as Item;
+use TYPO3\Planet\Domain\Model\Item as Item;
 
 /**
  * Command controller to set up the Planetflow3 package
@@ -23,19 +23,19 @@ class ItemsCommandController extends \TYPO3\Flow\Cli\CommandController {
 
 	/**
 	 * @Flow\Inject
-	 * @var \Planetflow3\Domain\Repository\ChannelRepository
+	 * @var \TYPO3\Planet\Domain\Repository\ChannelRepository
 	 */
 	protected $channelRepository;
 
 	/**
 	 * @Flow\Inject
-	 * @var \Planetflow3\Domain\Service\ChannelService
+	 * @var \TYPO3\Planet\Domain\Service\ChannelService
 	 */
 	protected $channelService;
 
 	/**
 	 * @Flow\Inject
-	 * @var \Planetflow3\Domain\Repository\ItemRepository
+	 * @var \TYPO3\Planet\Domain\Repository\ItemRepository
 	 */
 	protected $itemRepository;
 
@@ -47,7 +47,7 @@ class ItemsCommandController extends \TYPO3\Flow\Cli\CommandController {
 
 	/**
 	 * @Flow\Inject
-	 * @var \Planetflow3\Log\FeedLoggerInterface
+	 * @var \TYPO3\Planet\Log\FeedLoggerInterface
 	 */
 	public $feedLogger;
 

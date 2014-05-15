@@ -1,5 +1,5 @@
 <?php
-namespace Planetflow3\Domain\Model;
+namespace TYPO3\Planet\Domain\Model;
 
 /*                                                                        *
  * This script belongs to the FLOW3 package "Planetflow3".                *
@@ -32,7 +32,7 @@ class Category {
 
 	/**
 	 * Items assigned to this category
-	 * @var \Doctrine\Common\Collections\ArrayCollection<\Planetflow3\Domain\Model\Item>
+	 * @var \Doctrine\Common\Collections\ArrayCollection<\TYPO3\Planet\Domain\Model\Item>
 	 * @ORM\ManyToMany(mappedBy="categories", fetch="LAZY")
 	 */
 	protected $items;
@@ -66,14 +66,14 @@ class Category {
 	}
 
 	/**
-	 * @return \Doctrine\Common\Collections\ArrayCollection<\Planetflow3\Domain\Model\Item>
+	 * @return \Doctrine\Common\Collections\ArrayCollection<\TYPO3\Planet\Domain\Model\Item>
 	 */
 	public function getItems() {
 		return $this->items;
 	}
 
 	/**
-	 * @param \Doctrine\Common\Collections\ArrayCollection<\Planetflow3\Domain\Model\Item> $items
+	 * @param \Doctrine\Common\Collections\ArrayCollection<\TYPO3\Planet\Domain\Model\Item> $items
 	 */
 	public function setItems($items) {
 		$this->items = $items;

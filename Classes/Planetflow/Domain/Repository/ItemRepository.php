@@ -1,5 +1,5 @@
 <?php
-namespace Planetflow3\Domain\Repository;
+namespace TYPO3\Planet\Domain\Repository;
 
 /*                                                                        *
  * This script belongs to the FLOW3 package "Planetflow3".                *
@@ -36,14 +36,14 @@ class ItemRepository extends \TYPO3\Flow\Persistence\Doctrine\Repository {
 	/**
 	 * Find items by filter for management
 	 *
-	 * @param \Planetflow3\Domain\Dto\ItemFilter $filter
+	 * @param \TYPO3\Planet\Domain\Dto\ItemFilter $filter
 	 * @return \TYPO3\Flow\Persistence\QueryResultInterface
 	 */
-	public function findByFilter(\Planetflow3\Domain\Dto\ItemFilter $filter = NULL) {
+	public function findByFilter(\TYPO3\Planet\Domain\Dto\ItemFilter $filter = NULL) {
 		$query = $this->createQuery();
 		$constraints = array();
 		if ($filter === NULL) {
-			$filter = new \Planetflow3\Domain\Dto\ItemFilter();
+			$filter = new \TYPO3\Planet\Domain\Dto\ItemFilter();
 		}
 		if ((string)$filter->getLanguage() !== '') {
 			$constraints[] = $query->equals('language', $filter->getLanguage());

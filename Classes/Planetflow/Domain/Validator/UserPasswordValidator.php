@@ -1,5 +1,5 @@
 <?php
-namespace Planetflow3\Domain\Validator;
+namespace TYPO3\Planet\Domain\Validator;
 
 /*                                                                        *
  * This script belongs to the FLOW3 package "Planetflow3".                *
@@ -19,7 +19,7 @@ use TYPO3\Flow\Annotations as Flow;
 class UserPasswordValidator extends \TYPO3\Flow\Validation\Validator\AbstractValidator {
 
 	/**
-	 * @param \Planetflow3\Domain\Dto\UserPassword $value
+	 * @param \TYPO3\Planet\Domain\Dto\UserPassword $value
 	 * @return void
 	 */
 	protected function isValid($value) {

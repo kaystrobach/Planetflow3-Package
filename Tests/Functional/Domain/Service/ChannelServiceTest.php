@@ -1,5 +1,5 @@
 <?php
-namespace Planetflow3\Tests\Functional\Domain\Service;
+namespace Planetflow\Tests\Functional\Domain\Service;
 
 /*                                                                        *
  * This script belongs to the FLOW3 package "Planetflow3".                *
@@ -22,17 +22,17 @@ class ChannelServiceTest extends \TYPO3\Flow\Tests\FunctionalTestCase {
 	static protected $testablePersistenceEnabled = TRUE;
 
 	/**
-	 * @var \Planetflow3\Domain\Repository\ChannelRepository
+	 * @var \Planetflow\Domain\Repository\ChannelRepository
 	 */
 	protected $categoryRepository;
 
 	/**
-	 * @var \Planetflow3\Domain\Repository\ChannelRepository
+	 * @var \Planetflow\Domain\Repository\ChannelRepository
 	 */
 	protected $channelRepository;
 
 	/**
-	 * @var \Planetflow3\Domain\Repository\ItemRepository
+	 * @var \Planetflow\Domain\Repository\ItemRepository
 	 */
 	protected $itemRepository;
 
@@ -42,7 +42,7 @@ class ChannelServiceTest extends \TYPO3\Flow\Tests\FunctionalTestCase {
 	protected $persistenceManager;
 
 	/**
-	 * @var \Planetflow3\Domain\Service\ChannelService
+	 * @var \Planetflow\Domain\Service\ChannelService
 	 */
 	protected $channelService;
 
@@ -64,7 +64,7 @@ class ChannelServiceTest extends \TYPO3\Flow\Tests\FunctionalTestCase {
 	 * @test
 	 */
 	public function fetchItemsGetsMatchingItemsFromFeed() {
-		$channel = new \Planetflow3\Domain\Model\Channel();
+		$channel = new \Planetflow\Domain\Model\Channel();
 		$channel->setFeedUrl('file://' . __DIR__ . '/../../Fixtures/Feeds/news.typo3.org-news-teams-flow3-rss.xml');
 		$channel->setName('Test Feed');
 		$channel->setUrl('http://www.example.com/test');

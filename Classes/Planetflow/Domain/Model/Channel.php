@@ -1,5 +1,5 @@
 <?php
-namespace Planetflow3\Domain\Model;
+namespace TYPO3\Planet\Domain\Model;
 
 /*                                                                        *
  * This script belongs to the FLOW3 package "Planetflow3".                *
@@ -50,7 +50,7 @@ class Channel {
 
 	/**
 	 * Assign a default category when the item has no category (e.g. missing in feed)
-	 * @var \Planetflow3\Domain\Model\Category
+	 * @var \TYPO3\Planet\Domain\Model\Category
 	 * @ORM\ManyToOne
 	 */
 	protected $defaultCategory;
@@ -63,7 +63,7 @@ class Channel {
 
 	/**
 	 * Items published by this channel
-	 * @var \Doctrine\Common\Collections\ArrayCollection<\Planetflow3\Domain\Model\Item>
+	 * @var \Doctrine\Common\Collections\ArrayCollection<\TYPO3\Planet\Domain\Model\Item>
 	 * @ORM\OneToMany(mappedBy="channel", cascade={"all"}, fetch="LAZY")
 	 */
 	protected $items;
@@ -173,14 +173,14 @@ class Channel {
 	}
 
 	/**
-	 * @return \Doctrine\Common\Collections\ArrayCollection<\Planetflow3\Domain\Model\Item>
+	 * @return \Doctrine\Common\Collections\ArrayCollection<\TYPO3\Planet\Domain\Model\Item>
 	 */
 	public function getItems() {
 		return $this->items;
 	}
 
 	/**
-	 * @param \Doctrine\Common\Collections\ArrayCollection<\Planetflow3\Domain\Model\Item> $items
+	 * @param \Doctrine\Common\Collections\ArrayCollection<\TYPO3\Planet\Domain\Model\Item> $items
 	 * @return void
 	 */
 	public function setItems(\Doctrine\Common\Collections\ArrayCollection $items) {
@@ -189,17 +189,17 @@ class Channel {
 
 	/**
 	 *
-	 * @param \Planetflow3\Domain\Model\Item $item
+	 * @param \TYPO3\Planet\Domain\Model\Item $item
 	 * @return void
 	 */
-	public function addItem(\Planetflow3\Domain\Model\Item $item) {
+	public function addItem(\TYPO3\Planet\Domain\Model\Item $item) {
 		$item->setChannel($this);
 		$this->items->add($item);
 	}
 
 	/**
 	 *
-	 * @return \Planetflow3\Domain\Model\Category
+	 * @return \TYPO3\Planet\Domain\Model\Category
 	 */
 	public function getDefaultCategory() {
 		return $this->defaultCategory;
@@ -207,10 +207,10 @@ class Channel {
 
 	/**
 	 *
-	 * @param \Planetflow3\Domain\Model\Category $defaultCategory
+	 * @param \TYPO3\Planet\Domain\Model\Category $defaultCategory
 	 * @return void
 	 */
-	public function setDefaultCategory(\Planetflow3\Domain\Model\Category $defaultCategory) {
+	public function setDefaultCategory(\TYPO3\Planet\Domain\Model\Category $defaultCategory) {
 		$this->defaultCategory = $defaultCategory;
 	}
 

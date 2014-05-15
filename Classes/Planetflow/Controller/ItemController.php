@@ -1,5 +1,5 @@
 <?php
-namespace Planetflow3\Controller;
+namespace TYPO3\Planet\Controller;
 
 /*                                                                        *
  * This script belongs to the FLOW3 package "Planetflow3".                *
@@ -21,31 +21,31 @@ class ItemController extends AbstractBackendController {
 
 	/**
 	 * @Flow\Inject
-	 * @var \Planetflow3\Domain\Repository\ItemRepository
+	 * @var \TYPO3\Planet\Domain\Repository\ItemRepository
 	 */
 	protected $itemRepository;
 
 	/**
 	 * @Flow\Inject
-	 * @var \Planetflow3\Domain\Repository\ChannelRepository
+	 * @var \TYPO3\Planet\Domain\Repository\ChannelRepository
 	 */
 	protected $channelRepository;
 
 	/**
 	 * @Flow\Inject
-	 * @var \Planetflow3\Domain\Repository\CategoryRepository
+	 * @var \TYPO3\Planet\Domain\Repository\CategoryRepository
 	 */
 	protected $categoryRepository;
 
 	/**
 	 * Index action
 	 *
-	 * @param \Planetflow3\Domain\Dto\ItemFilter $filter
+	 * @param \TYPO3\Planet\Domain\Dto\ItemFilter $filter
 	 * @Flow\SkipCsrfProtection
 	 */
 	public function indexAction($filter = NULL) {
 		if ($filter === NULL) {
-			$filter = new \Planetflow3\Domain\Dto\ItemFilter();
+			$filter = new \TYPO3\Planet\Domain\Dto\ItemFilter();
 		}
 		$items = $this->itemRepository->findByFilter($filter);
 		$this->view->assign('items', $items);
@@ -60,10 +60,10 @@ class ItemController extends AbstractBackendController {
 	/**
 	 * Edit action
 	 *
-	 * @param \Planetflow3\Domain\Model\Item $item
+	 * @param \TYPO3\Planet\Domain\Model\Item $item
 	 * @Flow\IgnoreValidation("$item")
 	 */
-	public function editAction(\Planetflow3\Domain\Model\Item $item) {
+	public function editAction(\TYPO3\Planet\Domain\Model\Item $item) {
 		$categories = $this->categoryRepository->findAll();
 
 		$this->view->assign('item', $item);
@@ -73,9 +73,9 @@ class ItemController extends AbstractBackendController {
 	/**
 	 * Update action
 	 *
-	 * @param \Planetflow3\Domain\Model\Item $item
+	 * @param \TYPO3\Planet\Domain\Model\Item $item
 	 */
-	public function updateAction(\Planetflow3\Domain\Model\Item $item) {
+	public function updateAction(\TYPO3\Planet\Domain\Model\Item $item) {
 		$this->itemRepository->update($item);
 
 		$this->addFlashMessage('Item updated.', 'Success', \TYPO3\Flow\Error\Message::SEVERITY_OK);
@@ -85,9 +85,9 @@ class ItemController extends AbstractBackendController {
 	/**
 	 * Enable action
 	 *
-	 * @param \Planetflow3\Domain\Model\Item $item
+	 * @param \TYPO3\Planet\Domain\Model\Item $item
 	 */
-	public function enableAction(\Planetflow3\Domain\Model\Item $item) {
+	public function enableAction(\TYPO3\Planet\Domain\Model\Item $item) {
 		$item->setDisabled(FALSE);
 		$this->itemRepository->update($item);
 
@@ -98,9 +98,9 @@ class ItemController extends AbstractBackendController {
 	/**
 	 * Disable action
 	 *
-	 * @param \Planetflow3\Domain\Model\Item $item
+	 * @param \TYPO3\Planet\Domain\Model\Item $item
 	 */
-	public function disableAction(\Planetflow3\Domain\Model\Item $item) {
+	public function disableAction(\TYPO3\Planet\Domain\Model\Item $item) {
 		$item->setDisabled(TRUE);
 		$this->itemRepository->update($item);
 

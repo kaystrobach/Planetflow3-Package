@@ -1,5 +1,5 @@
 <?php
-namespace Planetflow3\Domain\Dto;
+namespace TYPO3\Planet\Domain\Dto;
 
 /*                                                                        *
  * This script belongs to the FLOW3 package "Planetflow3".                *
@@ -19,12 +19,12 @@ use TYPO3\Flow\Annotations as Flow;
 class ItemFilter {
 
 	/**
-	 * @var \Planetflow3\Domain\Model\Channel
+	 * @var \TYPO3\Planet\Domain\Model\Channel
 	 */
 	protected $channel;
 
 	/**
-	 * @var \Planetflow3\Domain\Model\Category
+	 * @var \TYPO3\Planet\Domain\Model\Category
 	 */
 	protected $category;
 
@@ -39,28 +39,28 @@ class ItemFilter {
 	protected $disabled = NULL;
 
 	/**
-	 * @return \Planetflow3\Domain\Model\Channel
+	 * @return \TYPO3\Planet\Domain\Model\Channel
 	 */
 	public function getChannel() {
 		return $this->channel;
 	}
 
 	/**
-	 * @param \Planetflow3\Domain\Model\Channel $channel
+	 * @param \TYPO3\Planet\Domain\Model\Channel $channel
 	 */
 	public function setChannel($channel) {
 		$this->channel = $channel;
 	}
 
 	/**
-	 * @return \Planetflow3\Domain\Model\Category
+	 * @return \TYPO3\Planet\Domain\Model\Category
 	 */
 	public function getCategory() {
 		return $this->category;
 	}
 
 	/**
-	 * @param \Planetflow3\Domain\Model\Category $category
+	 * @param \TYPO3\Planet\Domain\Model\Category $category
 	 */
 	public function setCategory($category) {
 		$this->category = $category;

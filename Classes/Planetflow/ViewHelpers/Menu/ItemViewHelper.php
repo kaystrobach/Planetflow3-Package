@@ -1,5 +1,5 @@
 <?php
-namespace Planetflow3\ViewHelpers\Menu;
+namespace TYPO3\Planet\ViewHelpers\Menu;
 
 /*                                                                        *
  * This script belongs to the FLOW3 package "Planetflow3".                *

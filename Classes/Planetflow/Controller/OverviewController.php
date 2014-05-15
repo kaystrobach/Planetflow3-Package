@@ -1,5 +1,5 @@
 <?php
-namespace Planetflow3\Controller;
+namespace TYPO3\Planet\Controller;
 
 /*                                                                        *
  * This script belongs to the FLOW3 package "Planetflow3".                *
@@ -20,13 +20,13 @@ class OverviewController extends AbstractBackendController {
 
 	/**
 	 * @Flow\Inject
-	 * @var \Planetflow3\Domain\Repository\ItemRepository
+	 * @var \TYPO3\Planet\Domain\Repository\ItemRepository
 	 */
 	protected $itemRepository;
 
 	/**
 	 * @Flow\Inject
-	 * @var \Planetflow3\Domain\Repository\ChannelRepository
+	 * @var \TYPO3\Planet\Domain\Repository\ChannelRepository
 	 */
 	protected $channelRepository;
 

@@ -1,5 +1,5 @@
 <?php
-namespace Planetflow3\Controller;
+namespace TYPO3\Planet\Controller;
 
 /*                                                                        *
  * This script belongs to the FLOW3 package "Planetflow3".                *
@@ -21,7 +21,7 @@ class CategoryController extends AbstractBackendController {
 
 	/**
 	 * @Flow\Inject
-	 * @var \Planetflow3\Domain\Repository\CategoryRepository
+	 * @var \TYPO3\Planet\Domain\Repository\CategoryRepository
 	 */
 	protected $categoryRepository;
 
@@ -38,19 +38,19 @@ class CategoryController extends AbstractBackendController {
 	/**
 	 * New action
 	 *
-	 * @param \Planetflow3\Domain\Model\Category $category
+	 * @param \TYPO3\Planet\Domain\Model\Category $category
 	 * @Flow\IgnoreValidation("$category")
 	 */
-	public function newAction(\Planetflow3\Domain\Model\Category $category = NULL) {
+	public function newAction(\TYPO3\Planet\Domain\Model\Category $category = NULL) {
 		$this->view->assign('category', $category);
 	}
 
 	/**
 	 * Create action
 	 *
-	 * @param \Planetflow3\Domain\Model\Category $category
+	 * @param \TYPO3\Planet\Domain\Model\Category $category
 	 */
-	public function createAction(\Planetflow3\Domain\Model\Category $category) {
+	public function createAction(\TYPO3\Planet\Domain\Model\Category $category) {
 		$this->categoryRepository->add($category);
 
 		$this->addFlashMessage('Category created.', 'Success', \TYPO3\Flow\Error\Message::SEVERITY_OK);
@@ -60,19 +60,19 @@ class CategoryController extends AbstractBackendController {
 	/**
 	 * Edit action
 	 *
-	 * @param \Planetflow3\Domain\Model\Category $category
+	 * @param \TYPO3\Planet\Domain\Model\Category $category
 	 * @Flow\IgnoreValidation("$category")
 	 */
-	public function editAction(\Planetflow3\Domain\Model\Category $category) {
+	public function editAction(\TYPO3\Planet\Domain\Model\Category $category) {
 		$this->view->assign('category', $category);
 	}
 
 	/**
 	 * Update action
 	 *
-	 * @param \Planetflow3\Domain\Model\Category $category
+	 * @param \TYPO3\Planet\Domain\Model\Category $category
 	 */
-	public function updateAction(\Planetflow3\Domain\Model\Category $category) {
+	public function updateAction(\TYPO3\Planet\Domain\Model\Category $category) {
 		$this->categoryRepository->update($category);
 
 		$this->addFlashMessage('Category updated.', 'Success', \TYPO3\Flow\Error\Message::SEVERITY_OK);
@@ -82,10 +82,10 @@ class CategoryController extends AbstractBackendController {
 	/**
 	 * Delete action
 	 *
-	 * @param \Planetflow3\Domain\Model\Category $category
+	 * @param \TYPO3\Planet\Domain\Model\Category $category
 	 * @Flow\IgnoreValidation("$category")
 	 */
-	public function deleteAction(\Planetflow3\Domain\Model\Category $category) {
+	public function deleteAction(\TYPO3\Planet\Domain\Model\Category $category) {
 		$this->categoryRepository->remove($category);
 
 		$this->addFlashMessage('Category removed.', 'Success', \TYPO3\Flow\Error\Message::SEVERITY_NOTICE);

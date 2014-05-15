@@ -1,5 +1,5 @@
 <?php
-namespace Planetflow3\ViewHelpers\Widget;
+namespace TYPO3\Planet\ViewHelpers\Widget;
 
 /*                                                                        *
  * This script belongs to the FLOW3 package "Planetflow3".                *
@@ -20,7 +20,7 @@ class PaginateViewHelper extends \TYPO3\Fluid\ViewHelpers\Widget\PaginateViewHel
 
 	/**
 	 * @Flow\Inject
-	 * @var \Planetflow3\ViewHelpers\Widget\Controller\PaginateController
+	 * @var \TYPO3\Planet\ViewHelpers\Widget\Controller\PaginateController
 	 */
 	protected $controller;
 

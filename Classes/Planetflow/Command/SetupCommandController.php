@@ -1,5 +1,5 @@
 <?php
-namespace Planetflow3\Command;
+namespace TYPO3\Planet\Command;
 
 /*                                                                        *
  * This script belongs to the FLOW3 package "Planetflow3".                *
@@ -21,25 +21,25 @@ class SetupCommandController extends \TYPO3\Flow\Cli\CommandController {
 
 	/**
 	 * @Flow\Inject
-	 * @var \Planetflow3\Domain\Repository\ChannelRepository
+	 * @var \TYPO3\Planet\Domain\Repository\ChannelRepository
 	 */
 	protected $channelRepository;
 
 	/**
 	 * @Flow\Inject
-	 * @var \Planetflow3\Domain\Repository\ItemRepository
+	 * @var \TYPO3\Planet\Domain\Repository\ItemRepository
 	 */
 	protected $itemRepository;
 
 	/**
 	 * @Flow\Inject
-	 * @var \Planetflow3\Domain\Repository\CategoryRepository
+	 * @var \TYPO3\Planet\Domain\Repository\CategoryRepository
 	 */
 	protected $categoryRepository;
 
 	/**
 	 * @Flow\Inject
-	 * @var \Planetflow3\Domain\Repository\UserRepository
+	 * @var \TYPO3\Planet\Domain\Repository\UserRepository
 	 */
 	protected $userRepository;
 
@@ -53,16 +53,16 @@ class SetupCommandController extends \TYPO3\Flow\Cli\CommandController {
 		$this->channelRepository->removeAll();
 		$this->categoryRepository->removeAll();
 
-		$flow3Category = new \Planetflow3\Domain\Model\Category('FLOW3');
+		$flow3Category = new \Planetflow\Domain\Model\Category('FLOW3');
 		$this->categoryRepository->add($flow3Category);
-		$phpCategory = new \Planetflow3\Domain\Model\Category('PHP');
+		$phpCategory = new \Planetflow\Domain\Model\Category('PHP');
 		$this->categoryRepository->add($phpCategory);
-		$phoenixCategory = new \Planetflow3\Domain\Model\Category('Phoenix');
+		$phoenixCategory = new \Planetflow\Domain\Model\Category('Phoenix');
 		$this->categoryRepository->add($phoenixCategory);
 
 		$channels = array();
 
-		$channel = new \Planetflow3\Domain\Model\Channel();
+		$channel = new \Planetflow\Domain\Model\Channel();
 		$channel->setName('news.typo3.org: FLOW3');
 		$channel->setUrl('http://news.typo3.org/news/teams/flow3/');
 		$channel->setFeedUrl('http://news.typo3.org/news/teams/flow3/rss.xml');
@@ -70,7 +70,7 @@ class SetupCommandController extends \TYPO3\Flow\Cli\CommandController {
 		$this->channelRepository->add($channel);
 		$channels[] = $channel;
 
-		$channel = new \Planetflow3\Domain\Model\Channel();
+		$channel = new \Planetflow\Domain\Model\Channel();
 		$channel->setName('Karsten Dambekalns - Code & Content');
 		$channel->setUrl('http://blog.k-fish.de');
 		$channel->setFeedUrl('http://blog.k-fish.de/feeds/posts/default');
@@ -78,7 +78,7 @@ class SetupCommandController extends \TYPO3\Flow\Cli\CommandController {
 		$this->channelRepository->add($channel);
 		$channels[] = $channel;
 
-		$channel = new \Planetflow3\Domain\Model\Channel();
+		$channel = new \Planetflow\Domain\Model\Channel();
 		$channel->setName('networkteam Blog - FLOW3');
 		$channel->setUrl('http://www.networkteam.com/blog.html');
 		$channel->setFeedUrl('http://www.networkteam.com/rss.xml');
@@ -87,7 +87,7 @@ class SetupCommandController extends \TYPO3\Flow\Cli\CommandController {
 		$this->channelRepository->add($channel);
 		$channels[] = $channel;
 
-		$channel = new \Planetflow3\Domain\Model\Channel();
+		$channel = new \Planetflow\Domain\Model\Channel();
 		$channel->setName('Robert Lemke - Fluent Code Artisan');
 		$channel->setUrl('http://robertlemke.de/blog/');
 		$channel->setFeedUrl('http://robertlemke.de/blog/feeds/posts.rss.xml');
@@ -96,7 +96,7 @@ class SetupCommandController extends \TYPO3\Flow\Cli\CommandController {
 		$this->channelRepository->add($channel);
 		$channels[] = $channel;
 
-		$channel = new \Planetflow3\Domain\Model\Channel();
+		$channel = new \Planetflow\Domain\Model\Channel();
 		$channel->setName('t3blog.de');
 		$channel->setUrl('http://t3blog.de');
 		$channel->setFeedUrl('http://t3blog.de/feed/');
@@ -105,7 +105,7 @@ class SetupCommandController extends \TYPO3\Flow\Cli\CommandController {
 		$this->channelRepository->add($channel);
 		$channels[] = $channel;
 
-		$channel = new \Planetflow3\Domain\Model\Channel();
+		$channel = new \Planetflow\Domain\Model\Channel();
 		$channel->setName('layh.com');
 		$channel->setUrl('http://www.layh.com');
 		$channel->setFeedUrl('http://www.layh.com/wordpress/feed/');
@@ -127,7 +127,7 @@ class SetupCommandController extends \TYPO3\Flow\Cli\CommandController {
 	public function createUserCommand($emailAddress) {
 		$uuid = \TYPO3\Flow\Utility\Algorithms::generateUUID();
 		$password = substr($uuid, 0, 10);
-		$user = new \Planetflow3\Domain\Model\User();
+		$user = new \Planetflow\Domain\Model\User();
 		$user->setEmailAddress($emailAddress);
 		$user->setPassword($password);
 		$user->setRole('SystemAdministrator');

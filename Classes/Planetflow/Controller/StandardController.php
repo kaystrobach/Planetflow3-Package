@@ -1,5 +1,5 @@
 <?php
-namespace Planetflow3\Controller;
+namespace Planetflow\Controller;
 
 /*                                                                        *
  * This script belongs to the FLOW3 package "Planetflow3".                *
@@ -21,13 +21,13 @@ class StandardController extends \TYPO3\Flow\Mvc\Controller\ActionController {
 
 	/**
 	 * @Flow\Inject
-	 * @var \Planetflow3\Domain\Repository\ItemRepository
+	 * @var \TYPO3\Planet\Domain\Repository\ItemRepository
 	 */
 	protected $itemRepository;
 
 	/**
 	 * @Flow\Inject
-	 * @var \Planetflow3\Domain\Repository\ChannelRepository
+	 * @var \TYPO3\Planet\Domain\Repository\ChannelRepository
 	 */
 	protected $channelRepository;
 
@@ -68,7 +68,7 @@ class StandardController extends \TYPO3\Flow\Mvc\Controller\ActionController {
 	public function indexAction($page = 1, $language = NULL) {
 		$offset = ($page - 1) * $this->perPage;
 
-		$filter = new \Planetflow3\Domain\Dto\ItemFilter();
+		$filter = new \TYPO3\Planet\Domain\Dto\ItemFilter();
 		$filter->setLanguage($language);
 		$filter->setDisabled(FALSE);
 		$result = $this->itemRepository->findByFilter($filter);
@@ -105,7 +105,7 @@ class StandardController extends \TYPO3\Flow\Mvc\Controller\ActionController {
 	 * @param string $language Filter by language, NULL for all languages
 	 */
 	public function feedAction($language = NULL) {
-		$filter = new \Planetflow3\Domain\Dto\ItemFilter();
+		$filter = new \TYPO3\Planet\Domain\Dto\ItemFilter();
 		$filter->setLanguage($language);
 		$filter->setDisabled(FALSE);
 		$result = $this->itemRepository->findByFilter($filter);
