@@ -8,7 +8,7 @@
     },
     "autoload": {
         "psr-0": {
-            "Planetflow": "Classes"
+            "TYPO3\\Planet": "Classes"
         }
     }
 }

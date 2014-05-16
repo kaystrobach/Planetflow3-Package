@@ -4,22 +4,27 @@
 
 resources:
   methods:
-    TYPO3_Planetflow3_OverviewController: 'method(Planetflow3\Controller\OverviewController->.*Action())'
-    TYPO3_Planetflow3_ItemController: 'method(Planetflow3\Controller\ItemController->.*Action())'
-    TYPO3_Planetflow3_ChannelController: 'method(Planetflow3\Controller\ChannelController->.*Action())'
-    TYPO3_Planetflow3_CategoryController: 'method(Planetflow3\Controller\CategoryController->.*Action())'
-    TYPO3_Planetflow3_UserController: 'method(Planetflow3\Controller\UserController->.*Action())'
+    TYPO3_Planet_OverviewController: 'method(TYPO3\Planet\Controller\OverviewController->.*Action())'
+    TYPO3_Planet_ItemController: 'method(TYPO3\Planet\Controller\ItemController->.*Action())'
+    TYPO3_Planet_ChannelController: 'method(TYPO3\Planet\Controller\ChannelController->.*Action())'
+    TYPO3_Planet_CategoryController: 'method(TYPO3\Planet\Controller\CategoryController->.*Action())'
+    TYPO3_Planet_UserController: 'method(TYPO3\Planet\Controller\UserController->.*Action())'
+    TYPO3_Planet_LoginController: 'method(TYPO3\Planet\Controller\LoginController->.*Action())'
+    TYPO3_Planet_StandardController: 'method(TYPO3\Planet\Controller\StandardController->.*Action())'
 roles:
   Administrator: {  }
   SystemAdministrator:
     - Administrator
 acls:
+  Everybody:
+    TYPO3_Planet_LoginController: GRANT
+    TYPO3_Planet_StandardController: GRANT
   Administrator:
     methods:
-      TYPO3_Planetflow3_OverviewController: GRANT
-      TYPO3_Planetflow3_ItemController: GRANT
-      TYPO3_Planetflow3_ChannelController: GRANT
-      TYPO3_Planetflow3_CategoryController: GRANT
+      TYPO3_Planet_OverviewController: GRANT
+      TYPO3_Planet_ItemController: GRANT
+      TYPO3_Planet_ChannelController: GRANT
+      TYPO3_Planet_CategoryController: GRANT
   SystemAdministrator:
     methods:
-      TYPO3_Planetflow3_UserController: GRANT
+      TYPO3_Planet_UserController: GRANT

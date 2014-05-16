@@ -17,15 +17,18 @@ TYPO3:
             default: 10
             label: 'Items per page'
             category: 'pluginSettings'
-  FLOW3:
+  Flow:
     security:
+    enable: FALSE
       authentication:
         providers:
           AdminInterfaceProvider:
             provider: 'PersistedUsernamePasswordProvider'
             entryPoint: 'WebRedirect'
             entryPointOptions:
-              uri: planetflow3/login
+              uri: typo3.planet/login
+      authorization:
+        allowAccessIfAllVotersAbstain: FALSE
 
 Planetflow3:
   log:
