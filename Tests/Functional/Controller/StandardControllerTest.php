@@ -2,7 +2,7 @@
 namespace TYPO3\Planet\Tests\Functional\Controller;
 
 /*                                                                        *
- * This script belongs to the FLOW3 package "Planetflow3".                *
+ * This script belongs to the FLOW3 package "TYPO3.Planet".                *
  *                                                                        *
  * It is free software; you can redistribute it and/or modify it under    *
  * the terms of the GNU General Public License, either version 3 of the   *
@@ -56,7 +56,7 @@ class StandardControllerTest extends \TYPO3\Flow\Tests\FunctionalTestCase {
 		$this->persistenceManager->persistAll();
 		$this->persistenceManager->clearState();
 
-		$result = $this->sendWebRequest('Standard', 'Planetflow3', 'index');
+		$result = $this->sendWebRequest('Standard', 'TYPO3.Planet', 'index');
 
 		// TODO Test actual output contains item
 	}
@@ -70,7 +70,7 @@ class StandardControllerTest extends \TYPO3\Flow\Tests\FunctionalTestCase {
 		$this->persistenceManager->persistAll();
 		$this->persistenceManager->clearState();
 
-		$result = $this->sendWebRequest('Standard', 'Planetflow3', 'feed');
+		$result = $this->sendWebRequest('Standard', 'TYPO3.Planet', 'feed');
 		// TODO Test actual output contains item
 	}
 
