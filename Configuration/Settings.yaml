@@ -19,22 +19,21 @@ TYPO3:
             category: 'pluginSettings'
   Flow:
     security:
-      enable: FALSE
+      enable: TRUE
+      #authorization:
+          #accessDecisionVoters: [TYPO3\FLOW3\Security\Authorization\Voter\Policy]
+          allowAccessIfAllVotersAbstain: TRUE
       authentication:
         providers:
           DefaultProvider:
-            provider: 'PersistedUsernamePasswordProvider'
+            provider: PersistedUsernamePasswordProvider
             entryPoint: 'WebRedirect'
             entryPointOptions:
-              provider: PersistedUsernamePasswordProvider
-              entryPoint: 'WebRedirect'
-              entryPointOptions:
-                routeValues:
-                  '@package': 'TYPO3.Planet'
-                  '@controller': 'Login'
-                  '@action': 'Index'
-
-TYPO3:
+              uri: 'TYPO3.Planet/Login/index'
+              routeValues:
+                '@package': 'TYPO3.Planet'
+                '@controller': 'Login'
+                '@action': 'index'
   Planet:
     log:
       feedLogger:
