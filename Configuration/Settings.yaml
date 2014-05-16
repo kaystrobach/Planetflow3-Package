@@ -19,6 +19,7 @@ TYPO3:
             category: 'pluginSettings'
   Flow:
     security:
+      enable: FALSE
       authentication:
         providers:
           DefaultProvider:
@@ -32,18 +33,17 @@ TYPO3:
                   '@package': 'TYPO3.Planet'
                   '@controller': 'Login'
                   '@action': 'Index'
-      authorization:
-        allowAccessIfAllVotersAbstain: TRUE
 
-Planetflow3:
-  log:
-    feedLogger:
-      backendOptions:
-        logFileURL: %FLOW_PATH_DATA%Logs/Planetflow3_Feed.log
-        createParentDirectories: TRUE
-        severityThreshold: %LOG_INFO%
-        maximumLogFileSize: 1048576
-        logFilesToKeep: 1
-  frontend:
-    view:
-      template: NULL
+TYPO3:
+  Planet:
+    log:
+      feedLogger:
+        backendOptions:
+          logFileURL: %FLOW_PATH_DATA%Logs/Planetflow3_Feed.log
+          createParentDirectories: TRUE
+          severityThreshold: %LOG_INFO%
+          maximumLogFileSize: 1048576
+          logFilesToKeep: 1
+    frontend:
+      view:
+        template: NULL

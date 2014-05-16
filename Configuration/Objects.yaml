@@ -3,10 +3,10 @@ TYPO3\Planet\Log\FeedLoggerInterface:
   factoryObjectName: TYPO3\Flow\Log\LoggerFactory
   arguments:
     1:
-      value: 'Planetflow3_Feed'
+      value: 'TYPO3.Plantet_Feed'
     2:
       value: 'TYPO3\Flow\Log\Logger'
     3:
       value: 'TYPO3\Flow\Log\Backend\FileBackend'
     4:
-      setting: Planetflow3.log.feedLogger.backendOptions
+      setting: TYPO3.Planet.log.feedLogger.backendOptions
