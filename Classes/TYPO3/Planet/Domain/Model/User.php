@@ -13,6 +13,7 @@ namespace TYPO3\Planet\Domain\Model;
 
 use Doctrine\ORM\Mapping as ORM;
 use TYPO3\Flow\Annotations as Flow;
+use TYPO3\Flow\Security\Account;
 
 /**
  * A user
@@ -46,10 +47,7 @@ class User extends \TYPO3\Party\Domain\Model\AbstractParty {
 	 * Construct a user
 	 */
 	public function __construct() {
-		parent::__construct();
-		$account = new \TYPO3\Flow\Security\Account();
-		$account->setAuthenticationProviderName('AdminInterfaceProvider');
-		$this->addAccount($account);
+
 	}
 
 	/**

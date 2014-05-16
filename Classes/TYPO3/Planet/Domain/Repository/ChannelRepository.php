@@ -42,7 +42,7 @@ class ChannelRepository extends \TYPO3\Flow\Persistence\Doctrine\Repository {
 	 */
 	public function findTopChannels($limit = 10) {
 		$result = $this->entityManager
-			->createQuery('SELECT c, SIZE(c.items) AS itemCount FROM \Planetflow3\Domain\Model\Channel c ORDER BY itemCount DESC')
+			->createQuery('SELECT c, SIZE(c.items) AS itemCount FROM \TYPO3\Planet\Domain\Model\Channel c ORDER BY itemCount DESC')
 			->setMaxResults($limit)
 			->execute();
 		$channels = array();

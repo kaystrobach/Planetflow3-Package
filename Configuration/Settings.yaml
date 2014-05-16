@@ -19,13 +19,12 @@ TYPO3:
             category: 'pluginSettings'
   Flow:
     security:
-      enable: TRUE
       authorization:
         #accessDecisionVoters: [TYPO3\FLOW3\Security\Authorization\Voter\Policy]
         allowAccessIfAllVotersAbstain: TRUE
       authentication:
         providers:
-          DefaultProvider:
+          AdminInterfaceProvider:
             provider: PersistedUsernamePasswordProvider
             entryPoint: 'WebRedirect'
             entryPointOptions:

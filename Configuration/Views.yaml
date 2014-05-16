@@ -1,0 +1,5 @@
+# Change the template of the PaginateViewHelper
+-
+  requestFilter: 'isPackage("TYPO3.Fluid") && isSubPackage("ViewHelpers\Widget") && isController("Paginate") && isAction("index")'
+  options:
+    templatePathAndFilename: 'resource://TYPO3.Planet/Private/Templates/ViewHelpers/Widget/Paginate/Index.html'

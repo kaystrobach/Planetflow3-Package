@@ -14,7 +14,7 @@
 		<f:form.submit class="btn" value="Filter" />
 	</f:form>
 
-	<p:widget.paginate objects="{items}" as="paginatedItems" configuration="{insertAbove: 1, itemsPerPage: 20, maximumNumberOfLinks: 10}">
+	<f:widget.paginate objects="{items}" as="paginatedItems" configuration="{insertAbove: 1, itemsPerPage: 20, maximumNumberOfLinks: 10}">
 	<table class="table table-striped">
 		<thead>
 			<tr>
@@ -61,5 +61,5 @@
 		</f:for>
 		</tbody>
 	</table>
-	</p:widget.paginate>
+	</f:widget.paginate>
 </f:section>
