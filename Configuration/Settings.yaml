@@ -20,9 +20,9 @@ TYPO3:
   Flow:
     security:
       enable: TRUE
-      #authorization:
-          #accessDecisionVoters: [TYPO3\FLOW3\Security\Authorization\Voter\Policy]
-          allowAccessIfAllVotersAbstain: TRUE
+      authorization:
+        #accessDecisionVoters: [TYPO3\FLOW3\Security\Authorization\Voter\Policy]
+        allowAccessIfAllVotersAbstain: TRUE
       authentication:
         providers:
           DefaultProvider:

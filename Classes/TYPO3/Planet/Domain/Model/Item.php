@@ -64,7 +64,7 @@ class Item {
 	/**
 	 * The categories
 	 * @var \Doctrine\Common\Collections\ArrayCollection<\TYPO3\Planet\Domain\Model\Category>
-	 * @ORM\ManyToMany
+	 * @ORM\ManyToMany(inversedBy="items")
 	 */
 	protected $categories;
 
