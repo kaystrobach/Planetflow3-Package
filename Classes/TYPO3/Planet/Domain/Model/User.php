@@ -33,7 +33,6 @@ class User extends \TYPO3\Party\Domain\Model\AbstractParty {
 	/**
 	 * @var string
 	 * @Flow\Validate(type="NotEmpty")
-	 * @Flow\Validate(type="RegularExpression", options={"regularExpression"="/^(Administrator|SystemAdministrator)$/"})
 	 */
 	protected $role;
 
@@ -55,14 +54,6 @@ class User extends \TYPO3\Party\Domain\Model\AbstractParty {
 	 */
 	protected $accountFactory;
 
-
-	/**
-	 * Construct a user
-	 */
-	public function __construct() {
-
-	}
-
 	/**
 	 * @return string
 	 */
@@ -70,14 +61,15 @@ class User extends \TYPO3\Party\Domain\Model\AbstractParty {
 		return $this->emailAddress;
 	}
 
-	public function initializeAccount($emailAddress, $password) {
+	public function initializeAccount($emailAddress, $password, $role) {
 		$account = $this->getPrimaryAccount();
 		if($account === NULL) {
-			$account = $this->accountFactory->createAccountWithPassword($emailAddress, $password, array('TYPO3.Planet:SystemAdministrator'), 'AdminInterfaceProvider');
+			$account = $this->accountFactory->createAccountWithPassword($emailAddress, $password, array($role), 'AdminInterfaceProvider');
 			$account->setParty($this);
-			$this->accountRepository->add($account);
+			#$this->accountRepository->add($account);
 			$this->addAccount($account);
 			$this->setEmailAddress($emailAddress);
+			$this->setRole($role);
 		}
 
 	}
@@ -104,7 +96,7 @@ class User extends \TYPO3\Party\Domain\Model\AbstractParty {
 	public function setRole($role) {
 		$this->role = $role;
 		$account = $this->getPrimaryAccount();
-		$account->setRoles(array($role));
+		#$account->setRoles(array($role));
 	}
 
 	/**

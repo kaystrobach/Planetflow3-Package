@@ -128,7 +128,7 @@ class SetupCommandController extends \TYPO3\Flow\Cli\CommandController {
 		$uuid = \TYPO3\Flow\Utility\Algorithms::generateUUID();
 		$password = substr($uuid, 0, 10);
 		$user = new \TYPO3\Planet\Domain\Model\User();
-		$user->initializeAccount($emailAddress, $password);
+		$user->initializeAccount($emailAddress, $password, 'TYPO3.Planet:SystemAdministrator');
 		$this->userRepository->add($user);
 		echo "Password: $password" . PHP_EOL;
 	}
