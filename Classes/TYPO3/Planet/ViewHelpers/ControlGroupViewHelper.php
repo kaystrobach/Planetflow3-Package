@@ -49,17 +49,18 @@ class ControlGroupViewHelper extends \TYPO3\Fluid\ViewHelpers\Form\AbstractFormF
 	 * @return array<\TYPO3\Flow\Error\Error> Array of errors
 	 */
 	protected function getMappingResultsForProperty() {
-		$originalRequestMappingResults = $this->controllerContext->getRequest()->getInternalArgument('__submittedArgumentValidationResults');
-		if (!$this->isObjectAccessorMode()) {
+		$originalRequestMappingResults = $this->getRequest()->getInternalArgument('__submittedArgumentValidationResults');
+
+		if (!$this->isObjectAccessorMode() && ($originalRequestMappingResults !== NULL)) {
 			if (isset($this->arguments['name'])) {
+				$formObjectName = $this->viewHelperVariableContainer->get('TYPO3\Fluid\ViewHelpers\FormViewHelper', 'formObjectName');
 				$propertyPath = str_replace('[', '.', str_replace(']', '', $this->arguments['name']));
-				return $originalRequestMappingResults->forProperty($propertyPath);
+				return $originalRequestMappingResults->forProperty($formObjectName)->forProperty($propertyPath);
 			} else {
 				return new \TYPO3\Flow\Error\Result();
 			}
 		}
-		$formObjectName = $this->viewHelperVariableContainer->get('TYPO3\Fluid\ViewHelpers\FormViewHelper', 'formObjectName');
-		return $originalRequestMappingResults->forProperty($formObjectName)->forProperty($this->arguments['property']);
+		return new \TYPO3\Flow\Error\Result();
 	}
 
 }
