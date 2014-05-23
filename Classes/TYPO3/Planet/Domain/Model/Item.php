@@ -59,7 +59,7 @@ class Item {
 	 * The author
 	 * @var string
 	 */
-	protected $author;
+	protected $author  = NULL;
 
 	/**
 	 * The categories
@@ -78,7 +78,7 @@ class Item {
 	 * Language of the item (ISO 2-letter)
 	 * @var string
 	 */
-	protected $language;
+	protected $language = NULL;
 
 	/**
 	 * The channel
