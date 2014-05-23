@@ -21,10 +21,10 @@ TYPO3:
     security:
       authorization:
         #accessDecisionVoters: [TYPO3\FLOW3\Security\Authorization\Voter\Policy]
-        allowAccessIfAllVotersAbstain: TRUE
+        #allowAccessIfAllVotersAbstain: TRUE
       authentication:
         providers:
-          AdminInterfaceProvider:
+          DefaultProvider:
             provider: PersistedUsernamePasswordProvider
             entryPoint: 'WebRedirect'
             entryPointOptions:

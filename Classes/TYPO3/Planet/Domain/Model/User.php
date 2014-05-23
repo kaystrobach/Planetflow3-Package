@@ -64,7 +64,7 @@ class User extends \TYPO3\Party\Domain\Model\AbstractParty {
 	public function initializeAccount($emailAddress, $password, $role) {
 		$account = $this->getPrimaryAccount();
 		if($account === NULL) {
-			$account = $this->accountFactory->createAccountWithPassword($emailAddress, $password, array($role), 'AdminInterfaceProvider');
+			$account = $this->accountFactory->createAccountWithPassword($emailAddress, $password, array($role), 'DefaultProvider');
 			$account->setParty($this);
 			#$this->accountRepository->add($account);
 			$this->addAccount($account);
