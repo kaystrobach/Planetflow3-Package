@@ -44,18 +44,6 @@ class SetupCommandController extends \TYPO3\Flow\Cli\CommandController {
 	protected $userRepository;
 
 	/**
-	 * @Flow\Inject
-	 * @var \TYPO3\Flow\Security\AccountRepository
-	 */
-	protected $accountRepository;
-
-	/**
-	 * @Flow\Inject
-	 * @var \TYPO3\Flow\Security\AccountFactory
-	 */
-	protected $accountFactory;
-
-	/**
 	 * Create sample data
 	 *
 	 * @return void
@@ -140,14 +128,8 @@ class SetupCommandController extends \TYPO3\Flow\Cli\CommandController {
 		$uuid = \TYPO3\Flow\Utility\Algorithms::generateUUID();
 		$password = substr($uuid, 0, 10);
 		$user = new \TYPO3\Planet\Domain\Model\User();
-		$user->setEmailAddress($emailAddress);
-		$user->setPassword($password);
+		$user->initializeAccount($emailAddress, $password);
 		$this->userRepository->add($user);
-
-		$account = $this->accountFactory->createAccountWithPassword($emailAddress, $password, array('TYPO3.Planet:SystemAdministrator'), 'AdminInterfaceProvider');
-		$account->setParty($user);
-		$this->accountRepository->add($account);
-
 		echo "Password: $password" . PHP_EOL;
 	}
 

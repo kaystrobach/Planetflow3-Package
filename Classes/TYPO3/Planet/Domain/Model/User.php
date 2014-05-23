@@ -44,6 +44,19 @@ class User extends \TYPO3\Party\Domain\Model\AbstractParty {
 	protected $hashService;
 
 	/**
+	 * @Flow\Inject
+	 * @var \TYPO3\Flow\Security\AccountRepository
+	 */
+	protected $accountRepository;
+
+	/**
+	 * @Flow\Inject
+	 * @var \TYPO3\Flow\Security\AccountFactory
+	 */
+	protected $accountFactory;
+
+
+	/**
 	 * Construct a user
 	 */
 	public function __construct() {
@@ -55,6 +68,18 @@ class User extends \TYPO3\Party\Domain\Model\AbstractParty {
 	 */
 	public function getEmailAddress() {
 		return $this->emailAddress;
+	}
+
+	public function initializeAccount($emailAddress, $password) {
+		$account = $this->getPrimaryAccount();
+		if($account === NULL) {
+			$account = $this->accountFactory->createAccountWithPassword($emailAddress, $password, array('TYPO3.Planet:SystemAdministrator'), 'AdminInterfaceProvider');
+			$account->setParty($this);
+			$this->accountRepository->add($account);
+			$this->addAccount($account);
+			$this->setEmailAddress($emailAddress);
+		}
+
 	}
 
 	/**
