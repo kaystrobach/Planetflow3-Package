@@ -42,8 +42,8 @@ class ChannelService {
 	protected $channelRepository;
 
 	/**
-	 * Flow\Inject
-	 * var \Chlu\Libtextcat\Textcat
+	 * @Flow\Inject
+	 * @var \Chlu\Libtextcat\Textcat
 	 */
 	protected $textcat;
 
