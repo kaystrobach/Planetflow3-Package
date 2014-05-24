@@ -5,8 +5,15 @@
     "version": "",
     "require": {
         "typo3/flow": "*",
-        "typo3/twitter-bootstrap": "dev-master"
+        "typo3/twitter-bootstrap": "dev-master",
+		"libtextcat": "dev-master"
     },
+	"repositories": [
+		{
+			"type": "vcs",
+			"url": "https://github.com/kaystrobach/Libtextcat-Package.git"
+		}
+	],
     "autoload": {
         "psr-0": {
             "TYPO3\\Planet": "Classes"
