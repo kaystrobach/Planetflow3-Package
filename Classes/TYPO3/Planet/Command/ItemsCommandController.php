@@ -92,7 +92,7 @@ class ItemsCommandController extends \TYPO3\Flow\Cli\CommandController {
 	 * @return void
 	 */
 	public function classifyLanguagesCommand() {
-		$textcat = new \Libtextcat\Textcat();
+		$textcat = new \Chlu\Libtextcat\Textcat();
 		$items = $this->itemRepository->findAll();
 		foreach ($items as $item) {
 			$language = $textcat->classify($item->getDescription() . ' ' . $item->getContent());

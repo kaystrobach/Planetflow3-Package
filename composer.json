@@ -6,7 +6,7 @@
     "require": {
         "typo3/flow": "*",
         "typo3/twitter-bootstrap": "dev-master",
-		"libtextcat": "dev-master"
+		"chlu/libtextcat": "dev-master"
     },
 	"repositories": [
 		{

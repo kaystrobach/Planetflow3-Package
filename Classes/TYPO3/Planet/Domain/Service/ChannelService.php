@@ -42,11 +42,10 @@ class ChannelService {
 	protected $channelRepository;
 
 	/**
-	 * @todo
 	 * Flow\Inject
-	 * var \Libtextcat\Textcat
+	 * var \Chlu\Libtextcat\Textcat
 	 */
-	#protected $textcat;
+	protected $textcat;
 
 	/**
 	 * Array of available categories by name, will be lazily initialized
@@ -90,7 +89,7 @@ class ChannelService {
 
 			if ($item->matchesChannel($channel)) {
 				# @todo
-				#$language = $this->textcat->classify($item->getDescription() . ' ' . $item->getContent());
+				$language = $this->textcat->classify($item->getDescription() . ' ' . $item->getContent());
 				$language = FALSE;
 				if ($language !== FALSE) {
 					$item->setLanguage($language);
