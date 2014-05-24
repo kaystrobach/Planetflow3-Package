@@ -8,20 +8,20 @@
 		<article class="item">
 			<div class="pull-right">
 				<g:plusone href="{item.link}"></g:plusone>
+				<div class="">
+					<small>
+						<span class="date">{item.publicationDate -> f:format.date(format: "M jS Y")}</span>
+						<a class="channel" href="{item.channel.url}">{item.channel.name}</a>
+						<f:if condition="{language}">
+							<f:then></f:then>
+							<f:else>
+								<f:link.action action="index" arguments="{language: item.language}" class="language" title="View only posts in {item.language -> p:languageName(lowercase: 1)}">{item.language -> p:languageName()}</f:link.action>
+							</f:else>
+						</f:if>
+					</small>
+				</div>
 			</div>
 			<h2><a href="{item.link}">{item.title -> f:format.raw()}</a></h2>
-			<div class="">
-				<small>
-					<span class="date">{item.publicationDate -> f:format.date(format: "M jS Y")}</span>
-					<a class="channel" href="{item.channel.url}">{item.channel.name}</a>
-					<f:if condition="{language}">
-						<f:then></f:then>
-						<f:else>
-							<f:link.action action="index" arguments="{language: item.language}" class="language" title="View only posts in {item.language -> p:languageName(lowercase: 1)}">{item.language -> p:languageName()}</f:link.action>
-						</f:else>
-					</f:if>
-				</small>
-			</div>
 
 
 			<f:if condition="{item.content}">
