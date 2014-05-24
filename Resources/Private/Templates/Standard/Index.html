@@ -7,7 +7,9 @@
 	<f:for each="{items}" as="item">
 		<article class="item">
 			<div class="pull-right">
-				<g:plusone href="{item.link}"></g:plusone>
+				<g:plusone href="{item.link}" size="medium"></g:plusone>
+				<a href="https://twitter.com/share" class="twitter-share-button" data-url="{item.link}" data-dnt="true" data-lang="{item.language}" data-text="{item.title}">Tweet</a>
+				<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
 				<div class="">
 					<small>
 						<span class="date">{item.publicationDate -> f:format.date(format: "M jS Y")}</span>
