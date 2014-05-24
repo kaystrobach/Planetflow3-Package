@@ -1,16 +1,24 @@
 {namespace p=TYPO3\Planet\ViewHelpers}
-<div class="well" style="padding: 8px 0;">
-	<ul class="nav nav-list">
-		<li class="nav-header">Manage the planet</li>
-		<p:menu.item controller="Overview" action="index" icon="icon-home">Overview</p:menu.item>
-		<p:menu.item controller="Item" action="index" icon="icon-file">Items</p:menu.item>
-		<p:menu.item controller="Channel" action="index" icon="icon-book">Channels</p:menu.item>
-		<p:menu.item controller="Category" action="index" icon="icon-tags">Categories</p:menu.item>
-
-		<f:security.ifHasRole role="SystemAdministrator">
-			<li class="nav-header">System management</li>
-			<!-- <li><a href="#"><i class="icon-time"></i> Log</a></li> -->
-			<p:menu.item controller="User" action="index" icon="icon-user">Users</p:menu.item>
-		</f:security.ifHasRole>
-	</ul>
+<div class="" style="padding: 8px 0;">
+	<div class="panel panel-default">
+		<div class="panel-heading">
+			<h3 class="panel-title">Manage the planet</h3>
+		</div>
+		<div class="list-group">
+			<p:menu.item controller="Overview" action="index" icon="glyphicon glyphicon-home">Overview</p:menu.item>
+			<p:menu.item controller="Item" action="index" icon="glyphicon glyphicon-file">Items</p:menu.item>
+			<p:menu.item controller="Channel" action="index" icon="glyphicon glyphicon-book">Channels</p:menu.item>
+			<p:menu.item controller="Category" action="index" icon="glyphicon glyphicon-tags">Categories</p:menu.item>
+		</div>
+	</div>
 </div>
+<f:security.ifHasRole role="SystemAdministrator">
+	<div class="panel panel-default">
+		<div class="panel-heading">
+			<h3 class="panel-title">System management</h3>
+		</div>
+		<div class="list-group">
+			<p:menu.item controller="User" action="index" icon="icon-user">Users</p:menu.item>
+		</div>
+	</div>
+</f:security.ifHasRole>

@@ -25,7 +25,7 @@ class ControlGroupViewHelper extends \TYPO3\Fluid\ViewHelpers\Form\AbstractFormF
 	 * @return string
 	 */
 	public function render() {
-		$cssClass = 'control-group';
+		$cssClass = 'form-group';
 		if ($this->hasArgument('class')) {
 			$cssClass .= ' ' . $this->arguments['class'];
 		}

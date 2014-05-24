@@ -16,20 +16,20 @@ namespace TYPO3\Planet\ViewHelpers\Menu;
  */
 class ItemViewHelper extends \TYPO3\Fluid\Core\ViewHelper\AbstractTagBasedViewHelper {
 
-	protected $tagName = 'li';
+	protected $tagName = 'a';
 
 	/**
 	 * Render a menu item (li) with correct icon color and active state.
 	 *
-	 * @param string $controller
-	 * @param string $action
-	 * @param string $icon
+	 * @param $controller
+	 * @param null $action
+	 * @param null $packageKey
+	 * @param null $icon
 	 * @param string $activeLevel
 	 * @return string
+	 * @throws \TYPO3\Flow\Mvc\Routing\Exception\MissingActionNameException
 	 */
 	public function render($controller, $action = NULL, $packageKey = NULL, $icon = NULL, $activeLevel = 'controller') {
-		$link = new \TYPO3\Fluid\Core\ViewHelper\TagBuilder('a');
-
 		$uriBuilder = $this->controllerContext->getUriBuilder();
 		$uri = $uriBuilder->reset()->uriFor($action, array(), $controller, $packageKey);
 
@@ -43,20 +43,18 @@ class ItemViewHelper extends \TYPO3\Fluid\Core\ViewHelper\AbstractTagBasedViewHe
 
 		$prependLabelContent = '';
 		if ($icon !== NULL) {
-			$iconClass = $icon;
-			if ($active) {
-				$iconClass .= ' icon-white';
-			}
-			$prependLabelContent = '<i class="' . $iconClass . '"></i> ';
+			$prependLabelContent = '<span class="' . $icon . '"></span> ';
 		}
+
+		$class = 'list-group-item';
 
 		if ($active) {
-			$this->tag->addAttribute('class', 'active');
+			$class .= ' active';
 		}
+		$this->tag->addAttribute('class', $class);
 
-		$link->addAttribute('href', $uri);
-		$link->setContent($prependLabelContent . $this->renderChildren());
-		$this->tag->setContent($link->render());
+		$this->tag->addAttribute('href', $uri);
+		$this->tag->setContent($prependLabelContent . $this->renderChildren());
 		return $this->tag->render();
 	}
 

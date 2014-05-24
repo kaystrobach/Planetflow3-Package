@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:bootstrap="http://typo3.org/ns/TYPO3/Twitter/Bootstrap/ViewHelpers">
 	<head>
 		<meta charset="utf-8" />
 		<title><f:render section="Title" /> - Planetflow3</title>
@@ -8,18 +8,15 @@
 
 		<f:base />
 
-		<link href="{f:uri.resource(path: 'Media/Stylesheets/bootstrap.min.css')}" rel="stylesheet" />
-		<link href="{f:uri.resource(path: 'Media/Stylesheets/bootstrap-responsive.min.css')}" rel="stylesheet" />
+		<bootstrap:include version="3.1" minified="1" includeJQuery="1" jQueryVersion="1.10.1" />
 		<link href="{f:uri.resource(path: 'Media/Stylesheets/backend.css')}" rel="stylesheet" />
 
-		<script src="{f:uri.resource(path: 'Media/JavaScripts/jquery-1.7.1.min.js')}"></script>
-		<script src="{f:uri.resource(path: 'Media/JavaScripts/bootstrap.min.js')}"></script>
 	</head>
 	<body>
-		<div class="navbar navbar-fixed-top">
+		<div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
 			<div class="navbar-inner">
 				<div class="container">
-					<a class="brand" href="#">Planetflow3</a>
+					<a class="navbar-brand" href="#">TYPO3.Planet</a>
 				</div>
 			</div>
 		</div>

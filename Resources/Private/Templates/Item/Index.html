@@ -9,8 +9,8 @@
 	</div>
 
 	<f:form action="index" method="post" class="well form-inline" name="filter" object="{filter}">
-		<f:form.select property="channel" options="{channels -> p:options(prependBlank: '- All channels -')}" optionLabelField="name" />
-		<f:form.select property="category" options="{categories -> p:options(prependBlank: ' - All categories -')}" optionLabelField="name" additionalAttributes="{placeholder: 'Please select'}" />
+		<f:form.select property="channel" options="{channels -> p:options(prependBlank: '- All channels -')}" optionLabelField="name" class="form-control"/>
+		<f:form.select property="category" options="{categories -> p:options(prependBlank: ' - All categories -')}" optionLabelField="name" additionalAttributes="{placeholder: 'Please select'}"  class="form-control" />
 		<f:form.submit class="btn" value="Filter" />
 	</f:form>
 
@@ -29,13 +29,13 @@
 					{item.publicationDate -> f:format.date()}
 				</td>
 				<td>
-					<span class="label">{item.channel.name}</span>
+					<span class="label label-default">{item.channel.name}</span>
 					<f:if condition="{item.language}">
 						<f:then>
 							<span class="label label-success">{item.language -> p:format.transform(case: 'upper')}</span>
 						</f:then>
 						<f:else>
-							<span class="label label-important">No language assigned!</span>
+							<span class="label label-danger">No language assigned!</span>
 						</f:else>
 					</f:if>
 					<strong>{item.title}</strong>
@@ -47,13 +47,13 @@
 					</f:for>
 				</td>
 				<td width="150">
-					<f:link.action action="edit" arguments="{item: item}" class="btn btn-small"><i class="icon-pencil icon-black"></i> Edit</f:link.action>
+					<f:link.action action="edit" arguments="{item: item}" class="btn btn-default btn-sm"><span class="glyphicon glyphicon-pencil"></span> Edit</f:link.action>
 					<f:if condition="{item.disabled}">
 						<f:then>
-							<f:link.action action="enable" arguments="{item: item}" class="btn btn-small"><i class="icon-eye-open icon-black"></i> Enable</f:link.action>
+							<f:link.action action="enable" arguments="{item: item}" class="btn btn-success btn-sm"><span class="glyphicon glyphicon-eye-open"></span> Enable</f:link.action>
 						</f:then>
 						<f:else>
-							<f:link.action action="disable" arguments="{item: item}" class="btn btn-small"><i class="icon-eye-close icon-black"></i> Disable</f:link.action>
+							<f:link.action action="disable" arguments="{item: item}" class="btn btn-danger btn-sm"><span class="glyphicon glyphicon-eye-close"></span> Disable</f:link.action>
 						</f:else>
 					</f:if>
 				</td>

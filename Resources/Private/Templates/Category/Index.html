@@ -24,13 +24,13 @@
 					<f:link.action action="index" controller="Item" arguments="{filter: {category: category}}"><span class="badge">{category.items -> f:count()}</span></f:link.action>
 				</td>
 				<td>
-					<f:link.action action="delete" arguments="{category: category}" class="btn btn-small btn-danger"><i class="icon-trash icon-white"></i> Delete</f:link.action>
+					<f:link.action action="delete" arguments="{category: category}" class="btn btn-sm btn-danger"><span class="glyphicon glyphicon-trash"></span> Delete</f:link.action>
 				</td>
 			</tr>
 		</f:for>
 		</tbody>
 	</table>
 	<p>
-		<f:link.action action="new" class="btn"><i class="icon-plus icon-black"></i> Create new category</f:link.action>
+		<f:link.action action="new" class="btn btn-default"><span class="glyphicon glyphicon-plus-sign"></span> Create new category</f:link.action>
 	</p>
 </f:section>
