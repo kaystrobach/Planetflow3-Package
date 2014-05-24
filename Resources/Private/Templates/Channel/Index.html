@@ -33,12 +33,37 @@
 				</td>
 				<td>
 					<f:link.action action="edit" arguments="{channel: channel}" class="btn btn-sm btn-default"><span class="glyphicon glyphicon-pencil"></span> Edit</f:link.action>
-					<f:link.action action="delete" arguments="{channel: channel}" class="btn btn-sm btn-danger"><span class="glyphicon glyphicon-trash icon-white"></span> Delete</f:link.action>
+					<button class="btn btn-sm btn-danger" data-toggle="modal" data-target="#channel-{channel -> f:format.identifier()}">
+						<span class="glyphicon glyphicon-trash"></span> Delete
+					</button>
 				</td>
 			</tr>
 		</f:for>
 		</tbody>
 	</table>
+	<f:for each="{channels}" as="channel">
+		<div class="modal fade" id="channel-{channel -> f:format.identifier()}" tabindex="-1" role="dialog" aria-hidden="true">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+						<h4 class="modal-title" id="myModalLabel">Delete Channel</h4>
+					</div>
+					<div class="modal-body">
+						Really deleted channel named: "{channel.name}" ?
+					</div>
+					<div class="modal-footer">
+						<f:form action="delete" object="{channel}" name="channel">
+							<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+							<button type="submit" class="btn btn-danger">
+								<span class="glyphicon glyphicon-trash"></span> Delete
+							</button>
+						</f:form>
+					</div>
+				</div>
+			</div>
+		</div>
+	</f:for>
 	<p>
 		<f:link.action action="new" class="btn btn-default"><span class="glyphicon glyphicon-plus-sign"></span> Create new channel</f:link.action>
 	</p>
