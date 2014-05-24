@@ -41,7 +41,6 @@ class LoginController extends \TYPO3\Flow\Mvc\Controller\ActionController {
 	public function authenticateAction() {
 		try {
             $this->authenticationManager->authenticate();
-            $this->addFlashMessage('You have successfully logged in.', 'Welcome', \TYPO3\Flow\Error\Message::SEVERITY_OK);
             $this->redirect('index', 'Overview');
         } catch (\TYPO3\Flow\Security\Exception\AuthenticationRequiredException $exception) {
 			$this->addFlashMessage('Wrong username or password.', 'Login failed', \TYPO3\Flow\Error\Message::SEVERITY_ERROR);

@@ -88,7 +88,7 @@ class CategoryController extends AbstractBackendController {
 	public function deleteAction(\TYPO3\Planet\Domain\Model\Category $category) {
 		$this->categoryRepository->remove($category);
 
-		$this->addFlashMessage('Category removed.', 'Success', \TYPO3\Flow\Error\Message::SEVERITY_NOTICE);
+		$this->addFlashMessage('Category removed.', 'Success', \TYPO3\Flow\Error\Message::SEVERITY_OK);
 		$this->redirect('index');
 	}
 

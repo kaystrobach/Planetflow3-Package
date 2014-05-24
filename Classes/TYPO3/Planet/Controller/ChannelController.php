@@ -88,7 +88,7 @@ class ChannelController extends AbstractBackendController {
 	public function deleteAction(\TYPO3\Planet\Domain\Model\Channel $channel) {
 		$this->channelRepository->remove($channel);
 
-		$this->addFlashMessage('Channel removed.', 'Success', \TYPO3\Flow\Error\Message::SEVERITY_NOTICE);
+		$this->addFlashMessage('Channel removed.', 'Success', \TYPO3\Flow\Error\Message::SEVERITY_OK);
 		$this->redirect('index');
 	}
 

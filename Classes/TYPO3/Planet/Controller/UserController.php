@@ -96,7 +96,7 @@ class UserController extends AbstractBackendController {
 	public function deleteAction(\TYPO3\Planet\Domain\Model\User $user) {
 		$this->userRepository->remove($user);
 
-		$this->addFlashMessage('User removed.', 'Success', \TYPO3\Flow\Error\Message::SEVERITY_NOTICE);
+		$this->addFlashMessage('User removed.', 'Success', \TYPO3\Flow\Error\Message::SEVERITY_OK);
 		$this->redirect('index');
 	}
 
