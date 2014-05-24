@@ -117,7 +117,7 @@ class StandardController extends \TYPO3\Flow\Mvc\Controller\ActionController {
 		$this->view->assign('language', $language);
 		$this->view->assign('items', $items);
 
-		$this->response->setHeader('Content-Type', 'application/rss+xml; charset=UTF-8');
+		$this->controllerContext->getResponse()->setHeader('Content-Type', 'application/rss+xml; charset=UTF-8');
 
 		// TODO Send correct cache control including last modified
 	}
