@@ -90,7 +90,6 @@ class ChannelService {
 			if ($item->matchesChannel($channel)) {
 				# @todo
 				$language = $this->textcat->classify($item->getDescription() . ' ' . $item->getContent());
-				$language = FALSE;
 				if ($language !== FALSE) {
 					$item->setLanguage($language);
 					$logCallback($item, 'Detected language ' . $language . ' for item', LOG_DEBUG);
