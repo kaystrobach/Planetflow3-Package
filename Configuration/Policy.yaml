@@ -80,5 +80,6 @@ acls:
     methods:
       TYPO3_Planet_UserController:      GRANT
   Everybody:
-    TYPO3_Planet_LoginController:       GRANT
-    TYPO3_Planet_StandardController:    GRANT
+    methods:
+      TYPO3_Planet_LoginController:     GRANT
+      TYPO3_Planet_StandardController:  GRANT

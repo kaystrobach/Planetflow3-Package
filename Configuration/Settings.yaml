@@ -19,9 +19,10 @@ TYPO3:
             category: 'pluginSettings'
   Flow:
     security:
-      authorization:
+      enable: TRUE
+      #authorization:
         #accessDecisionVoters: [TYPO3\FLOW3\Security\Authorization\Voter\Policy]
-        allowAccessIfAllVotersAbstain: FALSE
+        #allowAccessIfAllVotersAbstain: FALSE
       authentication:
         providers:
           DefaultProvider:
