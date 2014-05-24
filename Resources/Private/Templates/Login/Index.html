@@ -5,24 +5,21 @@
 <f:section name="Body">
 	<div id="login">
 		<div class="container container-content">
+			<f:render partial="Shared/FlashMessages.html" />
+
 			<div class="content">
-				<f:render partial="Shared/FlashMessages.html" />
-				<div class="row">
-					<div class="login-form">
-						<h2>Login</h2>
-						<f:form action="authenticate" method="post">
-							<fieldset>
-								<div class="clearfix">
-									<f:form.textfield name="__authentication[TYPO3][Flow][Security][Authentication][Token][UsernamePassword][username]" placeholder="Username" />
-								</div>
-								<div class="clearfix">
-									<f:form.password name="__authentication[TYPO3][Flow][Security][Authentication][Token][UsernamePassword][password]" additionalAttributes="{placeholder: 'Password'}" />
-								</div>
-								<button class="btn btn-primary" type="submit">Sign in</button>
-							</fieldset>
-						</f:form>
-					</div>
-				</div>
+				<h2>Login</h2>
+				<f:form action="authenticate" method="post" additionalAttributes="{role:'form'}">
+					<fieldset>
+						<div class="clearfix">
+							<f:form.textfield name="__authentication[TYPO3][Flow][Security][Authentication][Token][UsernamePassword][username]" placeholder="Username" class="form-control"/>
+						</div>
+						<div class="clearfix">
+							<f:form.password name="__authentication[TYPO3][Flow][Security][Authentication][Token][UsernamePassword][password]" additionalAttributes="{placeholder: 'Password'}"  class="form-control" />
+						</div>
+						<button class="btn btn-primary" type="submit">Sign in</button>
+					</fieldset>
+				</f:form>
 			</div>
 		</div>
 	</div>

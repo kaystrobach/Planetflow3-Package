@@ -6,17 +6,24 @@
 	<div class="articles">
 	<f:for each="{items}" as="item">
 		<article class="item">
-			<div class="headline">
-				<span class="date">{item.publicationDate -> f:format.date(format: "M jS Y")}</span>
-				<a class="channel" href="{item.channel.url}">{item.channel.name}</a>
-				<f:if condition="{language}">
-					<f:then></f:then>
-					<f:else>
-						<f:link.action action="index" arguments="{language: item.language}" class="language" title="View only posts in {item.language -> p:languageName(lowercase: 1)}">{item.language -> p:languageName()}</f:link.action>
-					</f:else>
-				</f:if>
+			<div class="pull-right">
+				<g:plusone href="{item.link}"></g:plusone>
 			</div>
 			<h2><a href="{item.link}">{item.title -> f:format.raw()}</a></h2>
+			<div class="">
+				<small>
+					<span class="date">{item.publicationDate -> f:format.date(format: "M jS Y")}</span>
+					<a class="channel" href="{item.channel.url}">{item.channel.name}</a>
+					<f:if condition="{language}">
+						<f:then></f:then>
+						<f:else>
+							<f:link.action action="index" arguments="{language: item.language}" class="language" title="View only posts in {item.language -> p:languageName(lowercase: 1)}">{item.language -> p:languageName()}</f:link.action>
+						</f:else>
+					</f:if>
+				</small>
+			</div>
+
+
 			<f:if condition="{item.content}">
 				<f:then>
 					{item.content -> f:format.raw()}
@@ -28,7 +35,7 @@
 			<p class="more">
 				<a href="{item.link}">Read full article</a>
 			</p>
-			<div class="sharing"><g:plusone href="{item.link}"></g:plusone></div>
+			<hr>
 		</article>
 	</f:for>
 	</div>
@@ -39,30 +46,44 @@
 	</f:if>
 </f:section>
 
-<f:section name="sidebar">
-	<nav class="language-switcher">
-		<h4>Language</h4>
-		<ul>
-			<li class="<f:if condition="{language}"><f:then></f:then><f:else>active</f:else></f:if>"><f:link.action action="index" arguments="{language: null}">All</f:link.action></li>
-			<f:for each="{languages}" as="availableLanguage">
-				<li class="<f:if condition="{language}=={availableLanguage}">active</f:if>"><f:link.action action="index" arguments="{language: availableLanguage}">{availableLanguage -> p:languageName()}</f:link.action></li>
-			</f:for>
-		</ul>
-	</nav>
-	<nav class="feeds">
-		<h4>Monitored feeds</h4>
-		<ul>
+<f:section name="footer">
+	TYPO3.Planet
+</f:section>
+
+
+<f:section name="menu">
+	<li class="dropdown">
+		<a href="#" class="dropdown-toggle" data-toggle="dropdown">Channels <b class="caret"></b></a>
+		<ul class="dropdown-menu">
 			<f:for each="{channels}" as="channel">
-				<li><a href="{channel.url}">{channel.name}</a></li>
+				<li>
+					<a href="{channel.url}">
+						<span class="glyphicon glyphicon-globe"></span>
+						{channel.name}
+					</a>
+				</li>
+			</f:for>
+			<li class="divider"></li>
+			<li>
+				<a href="{f:uri.action(controller: 'standard', action: 'feed', arguments: {language: language}, format: 'xml', absolute: 'true')}" class="rss">
+					<span class="glyphicon glyphicon-pushpin"></span>
+					Subscribe RSS feed
+				</a>
+			</li>
+		</ul>
+	</li>
+	<li class="dropdown">
+		<a href="#" class="dropdown-toggle" data-toggle="dropdown">Languages <b class="caret"></b></a>
+		<ul class="dropdown-menu">
+			<li class="{f:if(condition:language, else:'active')}">
+				<f:link.action action="index" arguments="{language: null}">All</f:link.action>
+			</li>
+			<li class="divider"></li>
+			<f:for each="{languages}" as="availableLanguage">
+				<li class="{f:if(condition:'{language}=={availableLanguage}', then:'active')}">
+					<f:link.action action="index" arguments="{language: availableLanguage}">{availableLanguage -> p:languageName()}</f:link.action>
+				</li>
 			</f:for>
 		</ul>
-	</nav>
-	<a href="{f:uri.action(controller: 'standard', action: 'feed', arguments: {language: language}, format: 'xml', absolute: 'true')}" class="rss">Subscribe RSS feed</a>
-
-	<nav class="admin">
-		<ul>
-			<li><f:link.action action="index" controller="Login">Login</f:link.action></li>
-		</ul>
-
-	</nav>
+	</li>
 </f:section>
