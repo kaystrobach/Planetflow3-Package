@@ -52,6 +52,12 @@ class ItemsCommandController extends \TYPO3\Flow\Cli\CommandController {
 	public $feedLogger;
 
 	/**
+	 * @Flow\Inject
+	 * @var \TYPO3\Flow\Persistence\PersistenceManagerInterface
+	 */
+	protected $persistenceManager;
+
+	/**
 	 * Fetch new items from all channels
 	 *
 	 * This command should be run by a cronjob to do periodical
@@ -81,6 +87,7 @@ class ItemsCommandController extends \TYPO3\Flow\Cli\CommandController {
 				echo "Done fetching items." . PHP_EOL;
 			}
 		}
+		$this->persistenceManager->persistAll();
 	}
 
 	/**
@@ -101,6 +108,7 @@ class ItemsCommandController extends \TYPO3\Flow\Cli\CommandController {
 				$item->setLanguage($language);
 			}
 		}
+		$this->persistenceManager->persistAll();
 	}
 
 	/**
@@ -118,6 +126,7 @@ class ItemsCommandController extends \TYPO3\Flow\Cli\CommandController {
 			$item->setContent($item->getContent());
 			$this->itemRepository->update($item);
 		}
+		$this->persistenceManager->persistAll();
 	}
 
 }
