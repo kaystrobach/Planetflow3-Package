@@ -1,0 +1,23 @@
+<f:for each="{items}" as="item">
+	<div class="modal fade" id="{itemType}-{item -> f:format.identifier()}" tabindex="-1" role="dialog" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+					<h4 class="modal-title" id="myModalLabel">Delete {itemType}</h4>
+				</div>
+				<div class="modal-body">
+					Really deleted {itemType} named: "{item.name}{item.emailAddress}" ?
+				</div>
+				<div class="modal-footer">
+					<f:form action="delete" object="{item}" name="{itemType}">
+						<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+						<button type="submit" class="btn btn-danger">
+							<span class="glyphicon glyphicon-trash"></span> Delete
+						</button>
+					</f:form>
+				</div>
+			</div>
+		</div>
+	</div>
+</f:for>

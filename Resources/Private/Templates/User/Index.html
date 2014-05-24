@@ -24,13 +24,15 @@
 					{user.role}
 				</td>
 				<td>
-					<f:link.action action="edit" arguments="{user: user}" class="btn btn-default btn-sm"><span class="glyphicon glyphicon-pencil"></span> Edit</f:link.action>
-					<f:link.action action="delete" arguments="{user: user}" class="btn btn-sm btn-danger"><span class="glyphicon glyphicon-trash"></span> Delete</f:link.action>
+					<f:link.action action="edit" arguments="{user: user}" class="btn btn-default btn-xs"><span class="glyphicon glyphicon-pencil"></span> Edit</f:link.action>
+					<f:render partial="Shared/DeleteButton" arguments="{item:user, itemType:'user'}"/>
 				</td>
 			</tr>
 		</f:for>
 		</tbody>
 	</table>
+	<f:render partial="Shared/DeleteModal" arguments="{items:users, itemType:'user'}"/>
+
 	<p>
 		<f:link.action action="new" class="btn btn-default"><span class="glyphicon glyphicon-plus-sign"></span> Create new user</f:link.action>
 	</p>

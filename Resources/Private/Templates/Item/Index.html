@@ -47,13 +47,22 @@
 					</f:for>
 				</td>
 				<td width="150">
-					<f:link.action action="edit" arguments="{item: item}" class="btn btn-default btn-sm"><span class="glyphicon glyphicon-pencil"></span> Edit</f:link.action>
 					<f:if condition="{item.disabled}">
 						<f:then>
-							<f:link.action action="enable" arguments="{item: item}" class="btn btn-success btn-sm"><span class="glyphicon glyphicon-eye-open"></span> Enable</f:link.action>
+							<f:form action="enable" object="{item}" name="item">
+								<f:link.action action="edit" arguments="{item: item}" class="btn btn-default btn-xs"><span class="glyphicon glyphicon-pencil"></span> Edit</f:link.action>
+								<button type="submit" class="btn btn-success btn-xs">
+									<span class="glyphicon glyphicon-eye-open"></span> Enable
+								</button>
+							</f:form>
 						</f:then>
 						<f:else>
-							<f:link.action action="disable" arguments="{item: item}" class="btn btn-danger btn-sm"><span class="glyphicon glyphicon-eye-close"></span> Disable</f:link.action>
+							<f:form action="disable" object="{item}" name="item">
+								<f:link.action action="edit" arguments="{item: item}" class="btn btn-default btn-xs"><span class="glyphicon glyphicon-pencil"></span> Edit</f:link.action>
+								<button type="submit" class="btn btn-danger btn-xs">
+									<span class="glyphicon glyphicon-eye-close"></span> Disable
+								</button>
+							</f:form>
 						</f:else>
 					</f:if>
 				</td>
