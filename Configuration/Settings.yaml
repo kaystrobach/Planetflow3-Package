@@ -18,6 +18,9 @@ TYPO3:
             label: 'Items per page'
             category: 'pluginSettings'
   Flow:
+    object:
+      excludeClasses:
+        'simplepie.simplepie': ['.*']
     security:
       enable: TRUE
       #authorization:
