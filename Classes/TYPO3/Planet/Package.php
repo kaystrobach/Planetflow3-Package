@@ -26,7 +26,6 @@ class Package extends BasePackage {
 	 * @return void
 	 */
 	public function boot(\TYPO3\Flow\Core\Bootstrap $bootstrap) {
-		require_once(__DIR__ . '/../../../Resources/PHP/SimplePie/SimplePieAutoloader.php');
 	}
 
 }
