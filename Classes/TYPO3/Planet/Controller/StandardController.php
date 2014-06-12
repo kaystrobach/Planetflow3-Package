@@ -92,7 +92,7 @@ class StandardController extends \TYPO3\Flow\Mvc\Controller\ActionController {
 
 		$channels = $this->channelRepository->findAll();
 		$this->view->assign('channels', $channels);
-		$this->view->assign('languages', array('en', 'de'));
+		$this->view->assign('languages', array('english', 'german'));
 
 		// TODO Send correct cache control including last modified
 	}

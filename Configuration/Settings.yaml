@@ -20,7 +20,8 @@ TYPO3:
   Flow:
     object:
       excludeClasses:
-        'simplepie.simplepie': ['.*']
+        'simplepie.simplepie':     ['.*']
+        'crodas.languagedetector': ['.*']
     security:
       enable: TRUE
       #authorization:

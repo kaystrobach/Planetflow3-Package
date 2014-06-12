@@ -42,16 +42,16 @@ class ChannelService {
 	protected $channelRepository;
 
 	/**
-	 * @Flow\Inject
-	 * @var \Chlu\Libtextcat\Textcat
-	 */
-	protected $textcat;
-
-	/**
 	 * Array of available categories by name, will be lazily initialized
 	 * @var array
 	 */
 	protected $availableCategories = NULL;
+
+	/**
+	 * @Flow\Inject
+	 * @var \TYPO3\Planet\Domain\Service\LanguageDetectionService
+	 */
+	public $languageDetectionService;
 
 	/**
 	 * Fetches (new) items from the configured feed of a channel
@@ -88,8 +88,7 @@ class ChannelService {
 			}
 
 			if ($item->matchesChannel($channel)) {
-				# @todo
-				$language = $this->textcat->classify($item->getDescription() . ' ' . $item->getContent());
+				$language = $this->languageDetectionService->detect($item->getDescription() . ' ' . $item->getContent());
 				if ($language !== FALSE) {
 					$item->setLanguage($language);
 					$logCallback($item, 'Detected language ' . $language . ' for item', LOG_DEBUG);

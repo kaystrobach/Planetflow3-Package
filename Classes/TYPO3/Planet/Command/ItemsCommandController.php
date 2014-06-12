@@ -52,6 +52,12 @@ class ItemsCommandController extends \TYPO3\Flow\Cli\CommandController {
 	public $feedLogger;
 
 	/**
+	 * @Flow\Inject
+	 * @var \TYPO3\Planet\Domain\Service\LanguageDetectionService
+	 */
+	public $languageDetectionService;
+
+	/**
 	 * Fetch new items from all channels
 	 *
 	 * This command should be run by a cronjob to do periodical
@@ -84,6 +90,15 @@ class ItemsCommandController extends \TYPO3\Flow\Cli\CommandController {
 	}
 
 	/**
+	 * Learns the languages for the classification
+	 *
+	 * @return void
+	 */
+	public function learnLanguagesCommand() {
+		$this->languageDetectionService->learnFromSamples();
+	}
+
+	/**
 	 * Detect languages of items
 	 *
 	 * Should be used after an update of the language
@@ -92,15 +107,12 @@ class ItemsCommandController extends \TYPO3\Flow\Cli\CommandController {
 	 * @return void
 	 */
 	public function classifyLanguagesCommand() {
-		$textcat = new \Chlu\Libtextcat\Textcat();
 		$items = $this->itemRepository->findAll();
 		foreach ($items as $item) {
-			$language = $textcat->classify($item->getDescription() . ' ' . $item->getContent());
-			if ($language !== FALSE) {
-				echo "Detected language $language for " . $item->getUniversalIdentifier() . PHP_EOL;
-				$item->setLanguage($language);
-				$this->itemRepository->update($item);
-			}
+			$language = $this->languageDetectionService->detect($item->getDescription() . ' ' . $item->getContent());
+			echo 'Detected language ' . $language . ' for ' . $item->getUniversalIdentifier() . PHP_EOL;
+			$item->setLanguage($language);
+			$this->itemRepository->update($item);
 		}
 	}
 

@@ -1,0 +1,18 @@
+article .content img {
+	float: right;
+	clear: both;
+	margin-left:  20px;
+	margin-top:   20px;
+	margin-bottom:20px;
+}
+article .content table {
+	width:100%;
+}
+article .content table img {
+	float: none;
+	margin: 3px 3px 3px 3px;
+}
+
+hr {
+	clear: both;
+}

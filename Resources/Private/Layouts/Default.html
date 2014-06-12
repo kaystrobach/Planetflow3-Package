@@ -16,8 +16,14 @@
 	<link rel="apple-touch-icon" href="/apple-touch-icon.png">
 
 	<bootstrap:include version="3.1" minified="1" includeJQuery="1" jQueryVersion="1.10.1" />
+	<link rel="stylesheet" href="{f:uri.resource(path: 'Media/Stylesheets/frontend.css')}">
+
 	<script src="{f:uri.resource(path: 'Media/JavaScripts/modernizr-1.7.min.js')}"></script>
-</head>
+
+	<!-- social share -->
+	<script type="text/javascript" src="http://panzi.github.io/SocialSharePrivacy/javascripts/jquery.cookies.js"></script>
+	<script type="text/javascript" src="http://panzi.github.io/SocialSharePrivacy/javascripts/jquery.socialshareprivacy.min.autoload.js"></script>
+	<script type="application/x-social-share-privacy-settings">{"path_prefix":"http://panzi.github.io/SocialSharePrivacy/","layout":"line","services":{"buffer":{"status":false},"disqus":{"status":false},"hackernews":{"status":false},"linkedin":{"status":false},"mail":{"status":false},"pinterest":{"status":false},"reddit":{"status":false},"stumbleupon":{"status":false},"xing":{"status":false}}}</script></head>
 
 <body>
 	<div class="container">
@@ -93,7 +99,6 @@
 
 	<script src="{f:uri.resource(path: 'Media/JavaScripts/jquery.infinitescroll.min.js')}"></script>
 	<script src="{f:uri.resource(path: 'Media/JavaScripts/script.js')}"></script>
-	<script src="https://apis.google.com/js/plusone.js"></script>
-	<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+
 </body>
 </html>
